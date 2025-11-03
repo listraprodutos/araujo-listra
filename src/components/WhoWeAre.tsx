@@ -12,13 +12,13 @@ const WhoWeAre = () => {
   const services = [
     {
       icon: Layers,
-      title: "Resultados exponenciais",
+      title: "TI + Growth Marketing + IA",
       subtitle: "Um parceiro completo para todas as frentes digitais.",
       description: "Estratégia & Growth Marketing, Desenvolvimento de Soluções em TI, Inteligência Artificial para negócios. Um parceiro completo para todas as frentes digitais.",
     },
     {
       icon: Shield,
-      title: "Resultados exponenciais",
+      title: "SEGURANÇA",
       subtitle: "Governança que funciona",
       description: "Ambientes segregados, versionamento completo, rollback ágil. Velocidade de startup com governança de corporação. Prontos para auditoria e compliance.",
     },
