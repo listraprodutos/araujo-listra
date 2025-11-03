@@ -87,8 +87,6 @@ const HowWeWork = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Mas afinal, por que a Listra?
-            <br />
             Não somos fornecedores.
             <br />
             <span className="text-primary">Somos parceiros estratégicos.</span>
