@@ -14,19 +14,19 @@ const WhoWeAre = () => {
       icon: Layers,
       title: "TI + Growth Marketing + IA",
       subtitle: "Um parceiro completo para todas as frentes digitais.",
-      description: "Estratégia & Growth Marketing, Desenvolvimento de Soluções em TI, Inteligência Artificial para negócios. Um parceiro completo para todas as frentes digitais.",
+      description: "Estratégia & Growth Marketing, Desenvolvimento de Soluções em TI, Inteligência Artificial para negócios.",
     },
     {
       icon: Shield,
-      title: "SEGURANÇA",
+      title: "Velocidade + Governança",
       subtitle: "Governança que funciona",
       description: "Ambientes segregados, versionamento completo, rollback ágil. Velocidade de startup com governança de corporação. Prontos para auditoria e compliance.",
     },
     {
       icon: Zap,
-      title: "ALTERNATIVA",
+      title: "Resultados Exponenciais",
       subtitle: "Não é mais do mesmo",
-      description: "TI + Growth integrados em um só time. Quando marketing precisa de tecnologia, nossa TI acelera. Quando TI precisa de estratégia, nosso Growth atua. Resultados exponenciais.",
+      description: "TI + Growth integrados em um só time. Quando marketing precisa de tecnologia, nossa TI acelera. Quando TI precisa de estratégia, nosso Growth atua.",
     },
   ];
 
