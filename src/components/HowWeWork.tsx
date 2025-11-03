@@ -209,60 +209,7 @@ const HowWeWork = () => {
         
 
         {/* Parcerias Duradouras Section */}
-        <motion.div className="bg-primary/10 rounded-3xl p-12 max-w-6xl mx-auto" initial={{
-        opacity: 0,
-        y: 30
-      }} animate={isInView ? {
-        opacity: 1,
-        y: 0
-      } : {}} transition={{
-        duration: 0.6,
-        delay: 3
-      }}>
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">
-            PARCERIAS DURADOURAS
-          </h3>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {partnerships.map((partnership, index) => <motion.div key={index} initial={{
-            opacity: 0,
-            y: 30
-          }} animate={isInView ? {
-            opacity: 1,
-            y: 0
-          } : {}} transition={{
-            duration: 0.6,
-            delay: 3.2 + index * 0.15
-          }}>
-                <Card className="h-full bg-white border-2 border-transparent hover:border-primary hover:shadow-xl transition-all duration-300">
-                  <CardContent className="pt-8 pb-8 px-6">
-                    {index === 0 && (
-                      <div className="mb-4 flex justify-center">
-                        <img src={dmaLogo} alt="DMA Distribuidora" className="h-16 object-contain" />
-                      </div>
-                    )}
-                    {index === 1 && (
-                      <div className="mb-4 flex justify-center">
-                        <img src={unidasLogo} alt="Unidas Rent a Car" className="h-16 object-contain" />
-                      </div>
-                    )}
-                    {index === 2 && (
-                      <div className="mb-4 flex justify-center">
-                        <img src={millsLogo} alt="Mills" className="h-16 object-contain" />
-                      </div>
-                    )}
-                    <div className="text-4xl font-bold text-primary mb-4">{partnership.years}</div>
-                    <div className="font-semibold text-foreground mb-3 leading-tight">{partnership.name}</div>
-                    <a href={partnership.website.startsWith('http') ? partnership.website : `https://${partnership.website}`} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline break-all">
-                      {partnership.website}
-                    </a>
-                  </CardContent>
-                </Card>
-              </motion.div>)}
-          </div>
-          
-          
-        </motion.div>
+        
       </div>
     </section>;
 };
