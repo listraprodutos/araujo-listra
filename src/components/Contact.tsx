@@ -13,55 +13,6 @@ const Contact = () => {
   return <section ref={ref} className="py-12 bg-gradient-to-b from-background to-araujo-blue-soft">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <motion.div className="text-center mb-10" initial={{
-          opacity: 0,
-          y: 30
-        }} animate={isInView ? {
-          opacity: 1,
-          y: 0
-        } : {}} transition={{
-          duration: 0.6
-        }}>
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <MessageCircle className="w-12 h-12 text-primary" strokeWidth={2} />
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
-                VAMOS CONVERSAR?
-              </h2>
-            </div>
-
-            <p className="text-xl leading-relaxed text-muted-foreground mb-8 mx-0 my-0">
-              Esta é nossa manifestação criativa de interesse
-              <br />
-              para fazer parte da próxima fase da Araujo.
-            </p>
-
-            <div className="space-y-4 text-lg max-w-2xl mx-auto">
-              <p>Estamos prontos para a segunda etapa.</p>
-              <p>Prontos para mergulhar no desafio.</p>
-              <p className="font-bold text-xl">
-                Prontos para pensar, criar e executar ao lado de vocês.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div className="mb-8" initial={{
-          opacity: 0,
-          y: 30
-        }} animate={isInView ? {
-          opacity: 1,
-          y: 0
-        } : {}} transition={{
-          duration: 0.6,
-          delay: 0.3
-        }}>
-            <Button asChild size="lg" className="w-full sm:w-auto mx-auto flex items-center gap-3 text-lg px-12 py-7 h-auto bg-araujo-blue hover:bg-araujo-blue/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl group">
-              <a href="mailto:paixaopelaaraujo@araujo.com.br">
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                JÁ MANIFESTAMOS NOSSO INTERESSE
-              </a>
-            </Button>
-          </motion.div>
-
           <motion.div initial={{
           opacity: 0,
           y: 30
