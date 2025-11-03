@@ -67,7 +67,7 @@ const BHForMinas = () => {
               
 
               <div className="grid sm:grid-cols-3 gap-6 mt-12">
-                {["Conhecemos o orgulho de ter a Araujo na esquina", "Conhecemos a confiança que o nome de vocês carrega", "Conhecemos o compromisso que 120 anos exigem"].map((text, index) => <motion.div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-border" initial={{
+                {["Conhecemos o orgulho de ter a Araujo na esquina", "Conhecemos a confiança que o Araújo carrega", "Conhecemos o compromisso que 120 anos exigem"].map((text, index) => <motion.div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-border" initial={{
                 opacity: 0,
                 y: 20
               }} animate={isInView ? {
