@@ -96,7 +96,7 @@ const Hero = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 2.1, type: "spring", stiffness: 200 }}
             >
-              ×
+              &
             </motion.div>
             <motion.img
               src={listraLogo}
