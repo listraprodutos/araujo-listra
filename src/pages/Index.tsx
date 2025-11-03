@@ -6,6 +6,7 @@ import WhyUs from "@/components/WhyUs";
 import Partnerships from "@/components/Partnerships";
 import BHForMinas from "@/components/BHForMinas";
 import Contact from "@/components/Contact";
+import GameCTA from "@/components/GameCTA";
 import Footer from "@/components/Footer";
 const Index = () => {
   return <div className="min-h-screen">
@@ -17,6 +18,7 @@ const Index = () => {
       <Partnerships />
       <BHForMinas />
       <Contact />
+      <GameCTA />
       <Footer />
     </div>;
 };
