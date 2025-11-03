@@ -67,7 +67,7 @@ const BHForMinas = () => {
               
 
               <div className="grid sm:grid-cols-3 gap-6 mt-12">
-                {["Conhecemos o orgulho de ter a Araujo na esquina", "Conhecemos a confiança que o Araújo carrega", "Conhecemos o compromisso que 120 anos exigem"].map((text, index) => <motion.div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-border" initial={{
+                {["Conhecemos o orgulho de ter a Araujo na esquina", "Conhecemos a confiança que o nome de vocês carrega", "Conhecemos o compromisso que 120 anos exigem"].map((text, index) => <motion.div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-border" initial={{
                 opacity: 0,
                 y: 20
               }} animate={isInView ? {
@@ -88,7 +88,12 @@ const BHForMinas = () => {
 
             <div className="text-center space-y-8">
               <p className="text-2xl font-medium">
-                Estamos prontos, Araújo! Vamos juntos?
+                E é por isso que queremos fazer parte dessa história.
+                <br />
+                Não para contar pra vocês como fazer.
+                <br />
+                Mas para construir  o próximo
+                capítulo.
               </p>
 
               <motion.div className="pt-12 bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20" initial={{
