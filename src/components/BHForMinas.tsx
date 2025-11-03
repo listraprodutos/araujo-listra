@@ -88,7 +88,7 @@ const BHForMinas = () => {
 
             <div className="text-center space-y-8">
               <p className="text-2xl font-medium">
-                Vamos construir juntos o próximo capítulo?
+                Estamos prontos, Araújo! Vamos juntos?
               </p>
 
               <motion.div className="pt-12 bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20" initial={{
