@@ -28,8 +28,8 @@ const AraujoTimeline = () => {
         {/* Horizontal Timeline */}
         <div className="max-w-6xl mx-auto mb-20">
           <div className="relative">
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-border -translate-y-1/2 hidden lg:block" />
-            <motion.div className="absolute top-1/2 left-0 h-1 bg-araujo-blue -translate-y-1/2 hidden lg:block" initial={{ width: 0 }} animate={isInView ? { width: `${(activeYear / (timeline.length - 1)) * 100}%` } : {}} transition={{ duration: 1.5, delay: 0.5 }} />
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-border -translate-y-1/2 hidden lg:block z-0" />
+            <motion.div className="absolute top-1/2 left-0 h-1 bg-araujo-blue -translate-y-1/2 hidden lg:block z-0" initial={{ width: 0 }} animate={isInView ? { width: `${(activeYear / (timeline.length - 1)) * 100}%` } : {}} transition={{ duration: 1.5, delay: 0.5 }} />
 
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
               {timeline.map((item, index) => {
