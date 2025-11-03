@@ -21,12 +21,12 @@ interface Medicine {
 }
 
 const initialSymptoms = [
-  { id: "criatividade", label: "Criatividade", color: "bg-purple-500" },
-  { id: "integracao", label: "Integração de Dados", color: "bg-blue-500" },
-  { id: "automacao", label: "Automação", color: "bg-green-500" },
-  { id: "estrategia", label: "Estratégia Digital", color: "bg-yellow-500" },
-  { id: "ia", label: "Inteligência Artificial", color: "bg-pink-500" },
-  { id: "cloud", label: "Cloud Computing", color: "bg-indigo-500" },
+  { id: "criatividade", label: "Criatividade", color: "bg-gray-200" },
+  { id: "integracao", label: "Integração de Dados", color: "bg-gray-200" },
+  { id: "automacao", label: "Automação", color: "bg-gray-200" },
+  { id: "estrategia", label: "Estratégia Digital", color: "bg-gray-200" },
+  { id: "ia", label: "Inteligência Artificial", color: "bg-gray-200" },
+  { id: "cloud", label: "Cloud Computing", color: "bg-gray-200" },
 ];
 
 const Consulta = () => {
@@ -72,13 +72,10 @@ const Consulta = () => {
 
   const addCustomSymptom = () => {
     if (customInput.trim()) {
-      const colors = ["bg-red-500", "bg-orange-500", "bg-teal-500", "bg-cyan-500"];
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      
       const newSymptom = {
         id: `custom-${Date.now()}`,
         label: customInput,
-        color: randomColor,
+        color: "bg-gray-200",
       };
       
       setSymptoms([...symptoms, newSymptom]);
@@ -198,14 +195,15 @@ const Consulta = () => {
                         whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
                         initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
                         whileHover={{ rotate: 0, scale: 1.05 }}
-                        className={`${symptom.color} text-white p-6 cursor-grab active:cursor-grabbing shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all`}
+                        className={`${symptom.color} text-gray-800 px-6 py-4 cursor-grab active:cursor-grabbing shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all inline-block`}
                         style={{
                           borderRadius: '2px',
                           clipPath: 'polygon(1% 0%, 99% 2%, 98% 98%, 2% 99%)',
                           fontFamily: "'Caveat', cursive",
+                          width: 'fit-content',
                         }}
                       >
-                        <p className="font-bold text-center text-2xl">{symptom.label}</p>
+                        <p className="font-bold text-center text-xl whitespace-nowrap">{symptom.label}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -243,23 +241,25 @@ const Consulta = () => {
               className="relative"
             >
               {/* Bag SVG Background */}
-              <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-0">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
                 <svg
-                  viewBox="0 0 300 400"
-                  className="w-full h-full opacity-10"
-                  style={{ maxHeight: '500px' }}
+                  viewBox="0 0 300 450"
+                  className="w-full h-full opacity-40"
+                  style={{ maxHeight: '700px' }}
                 >
                   <path
-                    d="M 50 80 Q 50 60 70 60 L 100 60 Q 100 30 130 30 L 170 30 Q 170 60 200 60 L 230 60 Q 250 60 250 80 L 250 350 Q 250 380 220 380 L 80 380 Q 50 380 50 350 Z"
+                    d="M 40 100 Q 40 80 60 80 L 90 80 Q 90 40 130 40 L 170 40 Q 170 80 210 80 L 240 80 Q 260 80 260 100 L 260 400 Q 260 430 230 430 L 70 430 Q 40 430 40 400 Z"
                     fill="currentColor"
-                    className="text-primary/20"
+                    className="text-primary/50"
+                    stroke="currentColor"
+                    strokeWidth="2"
                   />
                   <path
-                    d="M 100 60 Q 110 45 130 45 L 170 45 Q 190 45 200 60"
+                    d="M 90 80 Q 105 55 130 55 L 170 55 Q 195 55 210 80"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="3"
-                    className="text-primary/20"
+                    strokeWidth="4"
+                    className="text-primary/50"
                   />
                 </svg>
               </div>
@@ -279,7 +279,7 @@ const Consulta = () => {
                     </p>
                   </div>
 
-                  <div className="flex-1 mb-6 overflow-y-auto min-h-[300px] relative">
+                  <div className="flex-1 mb-6 overflow-y-auto min-h-[400px] relative">
                     {bag.length === 0 ? (
                       <div className="h-full flex items-center justify-center text-center text-muted-foreground">
                         <div>
@@ -288,38 +288,47 @@ const Consulta = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="space-y-3 pt-4">
-                        {bag.map((medicine, index) => (
-                          <motion.div
-                            key={medicine.id}
-                            layout
-                            initial={{ y: -100, opacity: 0, rotate: -45 }}
-                            animate={{ 
-                              y: 0, 
-                              opacity: 1, 
-                              rotate: index % 2 === 0 ? -3 : 3 
-                            }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 100,
-                              damping: 12,
-                              delay: index * 0.1
-                            }}
-                            exit={{ opacity: 0, scale: 0.8 }}
-                            className={`${medicine.color} text-white p-5 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow`}
-                            style={{
-                              borderRadius: '2px',
-                              clipPath: 'polygon(1% 0%, 99% 2%, 98% 98%, 2% 99%)',
-                              fontFamily: "'Caveat', cursive",
-                            }}
-                            onClick={() => removeFromBag(medicine.id)}
-                          >
-                            <p className="font-bold text-center text-xl">{medicine.label}</p>
-                            <p className="text-xs text-center text-white/80 mt-1">
-                              Clique para remover
-                            </p>
-                          </motion.div>
-                        ))}
+                      <div className="relative h-full">
+                        {bag.map((medicine, index) => {
+                          const randomRotate = (index % 5) * 7 - 14;
+                          const randomX = (index % 3) * 30 - 30;
+                          const randomY = index * 60;
+                          
+                          return (
+                            <motion.div
+                              key={medicine.id}
+                              initial={{ y: -100, opacity: 0, rotate: -45 }}
+                              animate={{ 
+                                y: randomY, 
+                                x: randomX,
+                                opacity: 1, 
+                                rotate: randomRotate
+                              }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 100,
+                                damping: 12,
+                                delay: index * 0.1
+                              }}
+                              exit={{ opacity: 0, scale: 0.8 }}
+                              className={`${medicine.color} text-gray-800 px-6 py-4 shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow absolute group`}
+                              style={{
+                                borderRadius: '2px',
+                                clipPath: 'polygon(1% 0%, 99% 2%, 98% 98%, 2% 99%)',
+                                fontFamily: "'Caveat', cursive",
+                                width: 'fit-content',
+                              }}
+                            >
+                              <button
+                                onClick={() => removeFromBag(medicine.id)}
+                                className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
+                              >
+                                <X className="w-3 h-3" />
+                              </button>
+                              <p className="font-bold text-center text-lg whitespace-nowrap pr-2">{medicine.label}</p>
+                            </motion.div>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
