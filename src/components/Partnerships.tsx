@@ -18,10 +18,10 @@ const Partnerships = () => {
     author: "Roberto Gosende",
     role: "Diretor",
     results: [
-      { metric: "+1000%", label: "Crescimento" },
-      { metric: "4x", label: "Novo site com IA" },
-      { metric: "40%", label: "melhoria em métricas de SEO" },
-      { metric: "100%", label: "migração modernizada" },
+      { metric: "+1000%", label: "crescimento redes sociais" },
+      { metric: "30% +", label: "acessos no novo site/mês" },
+      { metric: "3.500.000", label: "visualizações stories/mês" },
+      { metric: "1 milhão", label: "leads campanha de aniversário 2021" },
     ],
   };
 
