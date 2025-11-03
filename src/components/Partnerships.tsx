@@ -31,7 +31,7 @@ const Partnerships = () => {
       duration: "4 anos",
       industry: "Varejo",
       testimonial:
-        "A abordagem data-driven e o foco em performance trouxeram crescimento consistente",
+        "Soluções em tecnologia e experiência do usuário.",
       author: "Roberto Mendes",
       role: "Head de Digital",
     },
