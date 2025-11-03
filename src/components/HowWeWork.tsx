@@ -75,9 +75,11 @@ const HowWeWork = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            NÃO SOMOS FORNECEDORES
+            E afinal, quem somos nós?
             <br />
-            <span className="text-primary">SOMOS PARCEIROS ESTRATÉGICOS</span>
+            Não somos fornecedores.
+            <br />
+            <span className="text-primary">Somos parceiros estratégicos.</span>
           </h2>
         </motion.div>
 
