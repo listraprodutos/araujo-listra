@@ -59,7 +59,7 @@ const HowWeWork = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, [isInView, process.length]);
-  return <section ref={ref} className="py-32 bg-gradient-to-b from-background via-muted/30 to-background">
+  return <section ref={ref} className="pt-32 pb-16 bg-gradient-to-b from-background via-muted/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-28" initial={{
         opacity: 0,
