@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, CheckCircle } from "lucide-react";
+import dmaLogoMain from "@/assets/dma-logo-main.png";
 
 const Partnerships = () => {
   const ref = useRef(null);
@@ -73,7 +74,12 @@ const Partnerships = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <Card className="bg-white border-2 border-border hover:border-primary/50 hover:shadow-2xl transition-all duration-300 rounded-3xl overflow-hidden">
-            <CardContent className="p-10 lg:p-12">
+            <CardContent className="p-10 lg:p-12 relative">
+              <img 
+                src={dmaLogoMain} 
+                alt="DMA Distribuidora" 
+                className="absolute top-8 right-8 h-16 w-auto object-contain"
+              />
               <div className="mb-8">
                 <h3 className="text-4xl font-bold mb-3">{mainPartner.company}</h3>
                 <div className="flex flex-wrap gap-3 text-base text-muted-foreground">
