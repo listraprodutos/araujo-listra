@@ -36,8 +36,8 @@ const AraujoTimeline = () => {
                 const Icon = item.icon;
                 const isActive = activeYear === index;
                 return (
-                  <motion.div key={index} className="relative flex flex-col items-center cursor-pointer" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: index * 0.1 }} onMouseEnter={() => setActiveYear(index)}>
-                    <motion.div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4 relative z-10 transition-all duration-300 ${isActive ? "bg-araujo-blue text-white shadow-lg scale-110" : "bg-white border-2 border-border text-muted-foreground hover:border-araujo-blue"}`} whileHover={{ scale: 1.1 }}>
+                  <motion.div key={index} className="relative flex flex-col items-center cursor-pointer z-20" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: index * 0.1 }} onMouseEnter={() => setActiveYear(index)}>
+                    <motion.div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4 relative transition-all duration-300 ${isActive ? "bg-araujo-blue text-white shadow-lg scale-110" : "bg-white border-2 border-border text-muted-foreground hover:border-araujo-blue"}`} whileHover={{ scale: 1.1 }}>
                       <Icon className="w-8 h-8" strokeWidth={2} />
                     </motion.div>
                     <div className={`text-2xl font-bold mb-2 transition-colors ${isActive ? "text-araujo-blue" : "text-foreground"}`}>{item.year}</div>
