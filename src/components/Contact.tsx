@@ -90,7 +90,7 @@ const Contact = () => {
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <motion.a href="mailto:contato@listradigital.com.br" className="p-6 rounded-2xl bg-muted hover:bg-primary/10 transition-colors group border-2 border-transparent hover:border-primary/20" whileHover={{
+                    <motion.a href="mailto:mariana@listradigital.com.br" className="p-6 rounded-2xl bg-muted hover:bg-primary/10 transition-colors group border-2 border-transparent hover:border-primary/20" whileHover={{
                     scale: 1.02
                   }}>
                       <div className="flex items-center gap-3 mb-3">
@@ -100,7 +100,7 @@ const Contact = () => {
                         <div className="text-sm text-muted-foreground font-medium">E-mail</div>
                       </div>
                       <div className="text-base font-semibold group-hover:text-primary transition-colors">
-                        contato@listradigital.com.br
+                        mariana@listradigital.com.br
                       </div>
                     </motion.a>
 
