@@ -7,21 +7,17 @@ import Partnerships from "@/components/Partnerships";
 import BHForMinas from "@/components/BHForMinas";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Hero />
       <WhoWeAre />
       <AraujoTimeline />
       <HowWeWork />
-      <WhyUs />
+      
       <Partnerships />
       <BHForMinas />
       <Contact />
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
