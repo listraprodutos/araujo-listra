@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Heart } from "lucide-react";
-
 const BHForMinas = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section ref={ref} className="py-32 bg-gradient-to-b from-araujo-blue-soft to-background relative overflow-hidden">
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px"
+  });
+  return <section ref={ref} className="py-32 bg-gradient-to-b from-araujo-blue-soft to-background relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-64 h-64 bg-araujo-blue rounded-full blur-3xl" />
@@ -17,12 +17,15 @@ const BHForMinas = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div className="text-center mb-16" initial={{
+          opacity: 0,
+          y: 30
+        }} animate={isInView ? {
+          opacity: 1,
+          y: 0
+        } : {}} transition={{
+          duration: 0.6
+        }}>
             <div className="flex items-center justify-center gap-4 mb-6">
               <Heart className="w-12 h-12 text-primary" strokeWidth={2} fill="currentColor" />
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
@@ -31,12 +34,16 @@ const BHForMinas = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            className="space-y-12 text-lg sm:text-xl leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <motion.div className="space-y-12 text-lg sm:text-xl leading-relaxed" initial={{
+          opacity: 0,
+          y: 30
+        }} animate={isInView ? {
+          opacity: 1,
+          y: 0
+        } : {}} transition={{
+          duration: 0.6,
+          delay: 0.3
+        }}>
             <div className="text-center bg-white/50 backdrop-blur-sm rounded-3xl p-10 border-2 border-border">
               <MapPin className="w-10 h-10 text-primary mx-auto mb-4" strokeWidth={2} />
               <p className="text-2xl">
@@ -57,29 +64,23 @@ const BHForMinas = () => {
             <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-16 max-w-xs mx-auto" />
 
             <div className="space-y-8 text-center">
-              <p className="font-bold text-2xl lg:text-3xl">
-                Não vamos "estudar" a mineiridade.
-                <br />
-                Nós <span className="text-primary">VIVEMOS</span> ela todos os dias.
-              </p>
+              
 
               <div className="grid sm:grid-cols-3 gap-6 mt-12">
-                {[
-                  "Conhecemos o orgulho de ter a Araujo na esquina",
-                  "Conhecemos a confiança que o nome de vocês carrega",
-                  "Conhecemos o compromisso que 120 anos exigem",
-                ].map((text, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-border"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
+                {["Conhecemos o orgulho de ter a Araujo na esquina", "Conhecemos a confiança que o nome de vocês carrega", "Conhecemos o compromisso que 120 anos exigem"].map((text, index) => <motion.div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-border" initial={{
+                opacity: 0,
+                y: 20
+              }} animate={isInView ? {
+                opacity: 1,
+                y: 0
+              } : {}} transition={{
+                duration: 0.6,
+                delay: 0.6 + index * 0.1
+              }} whileHover={{
+                scale: 1.05
+              }}>
                     <p className="text-base text-muted-foreground">{text}</p>
-                  </motion.div>
-                ))}
+                  </motion.div>)}
               </div>
             </div>
 
@@ -95,12 +96,16 @@ const BHForMinas = () => {
                 capítulo.
               </p>
 
-              <motion.div
-                className="pt-12 bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.9 }}
-              >
+              <motion.div className="pt-12 bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20" initial={{
+              opacity: 0,
+              scale: 0.9
+            }} animate={isInView ? {
+              opacity: 1,
+              scale: 1
+            } : {}} transition={{
+              duration: 0.6,
+              delay: 0.9
+            }}>
                 <div className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-araujo-blue bg-clip-text text-transparent">
                   LISTRA
                 </div>
@@ -112,8 +117,6 @@ const BHForMinas = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BHForMinas;
