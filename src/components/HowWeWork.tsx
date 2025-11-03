@@ -43,9 +43,9 @@ const HowWeWork = () => {
       icon: Handshake,
       title: "PARCERIAS DURADOURAS",
       stats: [
-        { label: "DMA Distribuidora", value: "8 anos" },
-        { label: "Unidas Seminovos", value: "11 anos" },
-        { label: "Mills", value: "4 anos" },
+        { label: "Epa Supermercados", value: "8 anos" },
+        { label: "Mineirão Atacarejo", value: "11 anos" },
+        { label: "Brasil Atacarejo", value: "4 anos" },
       ],
       description: "Crescemos COM nossos clientes, não só PARA eles",
     },
