@@ -27,7 +27,7 @@ const Partnerships = () => {
 
   const otherPartners = [
     {
-      company: "Mills",
+      company: "Unidas",
       duration: "4 anos",
       industry: "Varejo",
       testimonial:
