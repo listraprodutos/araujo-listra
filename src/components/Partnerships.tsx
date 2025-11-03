@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Award, CheckCircle } from "lucide-react";
 import dmaLogoMain from "@/assets/dma-logo-main.png";
 import unidasLogoMain from "@/assets/unidas-logo-main.png";
+import millsLogoMain from "@/assets/mills-logo-main.png";
 
 const Partnerships = () => {
   const ref = useRef(null);
@@ -45,6 +46,7 @@ const Partnerships = () => {
         "Ter um braço extra que possibilita entregas ágeis e inovadoras é o sonho de todo time de marketing",
       author: "Erika Araujo",
       role: "Gerente de Mídia e BI",
+      logo: millsLogoMain,
     },
   ];
 
