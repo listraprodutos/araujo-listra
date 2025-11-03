@@ -1,9 +1,15 @@
+import listraLogo from "@/assets/listra-logo-white.png";
+
 const Footer = () => {
   return (
-    <footer className="py-16 bg-gradient-to-b from-listra-dark to-secondary text-white/90">
+    <footer className="py-16 bg-[#8b39ef] text-white/90">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-6">
-          <div className="text-4xl font-bold text-white mb-2">LISTRA</div>
+          <img 
+            src={listraLogo} 
+            alt="Listra Digital" 
+            className="h-12 mx-auto mb-2"
+          />
           <div className="text-lg font-medium text-white/80">
             15 anos criando impacto digital. Juntos.
           </div>
