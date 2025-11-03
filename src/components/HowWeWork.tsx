@@ -40,33 +40,29 @@ const HowWeWork = () => {
         "Quando marketing precisa de tecnologia, nossa TI acelera. Quando TI precisa de estratégia digital, nosso Growth atua. Um só time. Resultados exponenciais.",
     },
     {
-      icon: Handshake,
-      title: "PARCERIAS DURADOURAS",
-      partnerships: [
-        {
-          years: "8 anos",
-          name: "DMA Distribuidora: Epa Supermercados, Mineirão Atacarejo e Brasil Atacarejo",
-          website: "www.grupodma.com.br"
-        },
-        {
-          years: "13 anos",
-          name: "Unidas Rent a Car",
-          website: "https://unidas.com.br"
-        },
-        {
-          years: "4 anos",
-          name: "Mills",
-          website: "https://www.mills.com.br/"
-        }
-      ],
-      description: "Crescemos nossos clientes e com nossos clientes!",
-    },
-    {
       icon: Users,
       title: "VELOCIDADE + GOVERNANÇA",
       description:
         "Entregamos rápido sem abrir mão de qualidade. Versionamento, ambientes segregados, rollback ágil. Prontos para auditoria, compliance e segurança.",
     },
+  ];
+
+  const partnerships = [
+    {
+      years: "8 anos",
+      name: "DMA Distribuidora: Epa Supermercados, Mineirão Atacarejo e Brasil Atacarejo",
+      website: "www.grupodma.com.br"
+    },
+    {
+      years: "13 anos",
+      name: "Unidas Rent a Car",
+      website: "https://unidas.com.br"
+    },
+    {
+      years: "4 anos",
+      name: "Mills",
+      website: "https://www.mills.com.br/"
+    }
   ];
 
   useEffect(() => {
@@ -249,7 +245,7 @@ const HowWeWork = () => {
         </div>
 
         {/* Differentials */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
           {differentials.map((diff, index) => {
             const Icon = diff.icon;
             return (
@@ -271,25 +267,6 @@ const HowWeWork = () => {
                       {diff.title}
                     </h3>
                     
-                    {diff.partnerships && (
-                      <div className="space-y-4 mb-6">
-                        {diff.partnerships.map((partnership, idx) => (
-                          <div key={idx} className="border-l-2 border-primary pl-4">
-                            <div className="text-2xl font-bold text-primary mb-1">{partnership.years}</div>
-                            <div className="font-semibold text-foreground mb-1">{partnership.name}</div>
-                            <a 
-                              href={partnership.website.startsWith('http') ? partnership.website : `https://${partnership.website}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm text-primary hover:underline"
-                            >
-                              {partnership.website}
-                            </a>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    
                     <p className="text-base text-muted-foreground leading-relaxed">
                       {diff.description}
                     </p>
@@ -299,6 +276,48 @@ const HowWeWork = () => {
             );
           })}
         </div>
+
+        {/* Parcerias Duradouras Section */}
+        <motion.div
+          className="bg-primary/10 rounded-3xl p-12 max-w-6xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 3 }}
+        >
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">
+            PARCERIAS DURADOURAS
+          </h3>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {partnerships.map((partnership, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 3.2 + index * 0.15 }}
+              >
+                <Card className="h-full bg-white border-2 border-transparent hover:border-primary hover:shadow-xl transition-all duration-300">
+                  <CardContent className="pt-8 pb-8 px-6">
+                    <div className="text-4xl font-bold text-primary mb-4">{partnership.years}</div>
+                    <div className="font-semibold text-foreground mb-3 leading-tight">{partnership.name}</div>
+                    <a 
+                      href={partnership.website.startsWith('http') ? partnership.website : `https://${partnership.website}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:underline break-all"
+                    >
+                      {partnership.website}
+                    </a>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          
+          <p className="text-center text-lg text-muted-foreground mt-8 font-medium">
+            Crescemos nossos clientes e com nossos clientes!
+          </p>
+        </motion.div>
       </div>
     </section>
   );
