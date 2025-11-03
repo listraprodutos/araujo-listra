@@ -9,7 +9,7 @@ const Partnerships = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const mainPartner = {
-    company: "MILLS",
+    company: "DMA Distribuidora",
     duration: "4 anos de parceria",
     industry: "E-commerce",
     testimonial:
