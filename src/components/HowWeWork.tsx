@@ -42,12 +42,24 @@ const HowWeWork = () => {
     {
       icon: Handshake,
       title: "PARCERIAS DURADOURAS",
-      stats: [
-        { label: "Epa Supermercados", value: "8 anos" },
-        { label: "Mineirão Atacarejo", value: "11 anos" },
-        { label: "Brasil Atacarejo", value: "4 anos" },
+      partnerships: [
+        {
+          years: "8 anos",
+          name: "DMA Distribuidora: Epa Supermercados, Mineirão Atacarejo e Brasil Atacarejo",
+          website: "www.grupodma.com.br"
+        },
+        {
+          years: "13 anos",
+          name: "Unidas Rent a Car",
+          website: "https://unidas.com.br"
+        },
+        {
+          years: "4 anos",
+          name: "Mills",
+          website: "https://www.mills.com.br/"
+        }
       ],
-      description: "Crescemos COM nossos clientes, não só PARA eles",
+      description: "Crescemos nossos clientes e com nossos clientes!",
     },
     {
       icon: Users,
@@ -261,12 +273,20 @@ const HowWeWork = () => {
                       {diff.title}
                     </h3>
                     
-                    {diff.stats && (
-                      <div className="grid grid-cols-3 gap-2 mb-4">
-                        {diff.stats.map((stat, idx) => (
-                          <div key={idx} className="text-center">
-                            <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                            <div className="text-xs text-muted-foreground">{stat.label}</div>
+                    {diff.partnerships && (
+                      <div className="space-y-4 mb-6">
+                        {diff.partnerships.map((partnership, idx) => (
+                          <div key={idx} className="border-l-2 border-primary pl-4">
+                            <div className="text-2xl font-bold text-primary mb-1">{partnership.years}</div>
+                            <div className="font-semibold text-foreground mb-1">{partnership.name}</div>
+                            <a 
+                              href={partnership.website.startsWith('http') ? partnership.website : `https://${partnership.website}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-primary hover:underline"
+                            >
+                              {partnership.website}
+                            </a>
                           </div>
                         ))}
                       </div>
