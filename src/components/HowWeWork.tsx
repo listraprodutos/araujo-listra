@@ -243,9 +243,7 @@ const HowWeWork = () => {
               </motion.div>)}
           </div>
           
-          <p className="text-center text-lg text-muted-foreground mt-8 font-medium">
-            Crescemos nossos clientes e com nossos clientes!
-          </p>
+          
         </motion.div>
       </div>
     </section>;
