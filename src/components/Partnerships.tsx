@@ -28,7 +28,7 @@ const Partnerships = () => {
   const otherPartners = [
     {
       company: "Mills",
-      duration: "8 anos",
+      duration: "4 anos",
       industry: "Varejo",
       testimonial:
         "A abordagem data-driven e o foco em performance trouxeram crescimento consistente",
