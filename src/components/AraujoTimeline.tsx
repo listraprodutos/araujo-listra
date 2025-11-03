@@ -79,8 +79,7 @@ const AraujoTimeline = () => {
         <motion.div className="max-w-6xl mx-auto mt-32" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.8 }}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="bg-araujo-blue text-white rounded-3xl p-10 lg:p-12">
-              <h3 className="text-3xl lg:text-4xl font-bold mb-4">Vocês são um patrimônio dos mineiros.</h3>
-              <p className="text-xl mb-8">E patrimônios assim merecem parceiros que entendam:</p>
+              <h3 className="text-3xl lg:text-4xl font-bold mb-8">Vocês são um patrimônio dos mineiros e merecem parceiros que entendam:</h3>
               <div className="space-y-6">
                 {[
                   "Como manter conexão com novas gerações",
