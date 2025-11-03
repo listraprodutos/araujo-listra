@@ -19,7 +19,7 @@ const Partnerships = () => {
     role: "Diretor",
     results: [
       { metric: "+1000%", label: "Crescimento" },
-      { metric: "4x", label: "mais velocidade em publicação" },
+      { metric: "4x", label: "de crescimento nas redes sociais" },
       { metric: "40%", label: "melhoria em métricas de SEO" },
       { metric: "100%", label: "migração modernizada" },
     ],
