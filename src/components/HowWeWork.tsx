@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { RefreshCw, Handshake, Users, TrendingUp } from "lucide-react";
 import dmaLogo from "@/assets/dma-logo.png";
+import unidasLogo from "@/assets/unidas-logo.png";
 const HowWeWork = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -237,6 +238,11 @@ const HowWeWork = () => {
                     {index === 0 && (
                       <div className="mb-4 flex justify-center">
                         <img src={dmaLogo} alt="DMA Distribuidora" className="h-16 object-contain" />
+                      </div>
+                    )}
+                    {index === 1 && (
+                      <div className="mb-4 flex justify-center">
+                        <img src={unidasLogo} alt="Unidas Rent a Car" className="h-16 object-contain" />
                       </div>
                     )}
                     <div className="text-4xl font-bold text-primary mb-4">{partnership.years}</div>
