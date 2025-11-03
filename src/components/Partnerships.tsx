@@ -18,7 +18,7 @@ const Partnerships = () => {
     author: "Roberto Gosende",
     role: "Diretor",
     results: [
-      { metric: "60%", label: "redução de custos de infraestrutura" },
+      { metric: "de 30 mil para 500 mil", label: "seguidores" },
       { metric: "4x", label: "mais velocidade em publicação" },
       { metric: "40%", label: "melhoria em métricas de SEO" },
       { metric: "100%", label: "migração modernizada" },
