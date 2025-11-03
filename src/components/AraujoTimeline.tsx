@@ -79,16 +79,24 @@ const AraujoTimeline = () => {
         <motion.div className="max-w-6xl mx-auto mt-32" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.8 }}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="bg-araujo-blue text-white rounded-3xl p-10 lg:p-12">
-              <h3 className="text-3xl lg:text-4xl font-bold mb-8">É O PRÓXIMO CAPÍTULO</h3>
+              <h3 className="text-3xl lg:text-4xl font-bold mb-4">Vocês são um patrimônio dos mineiros.</h3>
+              <p className="text-xl mb-8">E patrimônios assim merecem parceiros que entendam:</p>
               <div className="space-y-6">
-                {["Pensa junto, não apenas executa", "Entende a responsabilidade de 120 anos", "Cresce COM vocês, não só PARA vocês", "Combina velocidade com governança", "É mineiro como vocês"].map((text, i) => (
+                {[
+                  "Como manter conexão com novas gerações",
+                  "Como escalar mantendo a mineiridade",
+                  "Como inovar sem perder a essência",
+                  "Como integrar físico + digital + saúde"
+                ].map((text, i) => (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-white mt-2 flex-shrink-0" />
-                    <p className="text-lg leading-relaxed"><span className="font-bold">{text.split(',')[0]}</span>{text.includes(',') ? ',' + text.split(',')[1] : ''}</p>
+                    <div className="text-2xl flex-shrink-0">→</div>
+                    <p className="text-lg leading-relaxed">{text}</p>
                   </div>
                 ))}
               </div>
-              <div className="mt-10 pt-8 border-t border-white/20"><p className="text-xl font-bold">Queremos ser esse parceiro.</p></div>
+              <div className="mt-10 pt-8 border-t border-white/20">
+                <p className="text-xl font-bold">É por isso que queremos fazer parte dessa história.</p>
+              </div>
             </div>
             <motion.div className="relative" initial={{ opacity: 0, x: 50 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, delay: 1 }}>
               <div className="relative max-w-sm mx-auto"><img src={araujoTemImage} alt="Araujo Tem Pra Tudo - App Mobile" className="w-full h-auto" /></div>
