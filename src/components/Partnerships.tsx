@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, CheckCircle } from "lucide-react";
 import dmaLogoMain from "@/assets/dma-logo-main.png";
+import unidasLogoMain from "@/assets/unidas-logo-main.png";
 
 const Partnerships = () => {
   const ref = useRef(null);
@@ -34,6 +35,7 @@ const Partnerships = () => {
         "Ter um braço extra que nos possibilite entregas ágeis, inovadoras e assertivas é o sonho de todo time de marketing. Para nós, a Listra representa exatamente isso: são verdadeiros parceiros e estão conosco há anos, sempre entregando com alto nível e mergulhando de cabeça nos nossos projetos digitais. Agradecemos a todo o time da Listra pelo comprometimento de sempre, vamos juntos!",
       author: "Erika Araujo",
       role: "Diretora de Mídia e BI",
+      logo: unidasLogoMain,
     },
     {
       company: "Mills",
@@ -127,7 +129,14 @@ const Partnerships = () => {
               transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
             >
               <Card className="h-full bg-white border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 rounded-3xl">
-                <CardContent className="p-8">
+                <CardContent className="p-8 relative">
+                  {partner.logo && (
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.company} 
+                      className="absolute top-6 right-6 h-12 w-auto object-contain"
+                    />
+                  )}
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <CheckCircle className="w-6 h-6 text-primary" strokeWidth={2} />
