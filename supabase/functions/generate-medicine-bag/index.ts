@@ -28,14 +28,40 @@ serve(async (req) => {
       );
     }
 
-    // Build the prompt for image generation
+    // Limit to 5 medicines
+    if (medicines.length > 5) {
+      return new Response(
+        JSON.stringify({ error: "Maximum of 5 medicines allowed" }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, "Content-Type": "application/json" } 
+        }
+      );
+    }
+
+    // Build the standardized prompt for image generation
     const medicineNames = medicines.map((m: any) => m.label).join(", ");
-    const prompt = `Create a beautiful, professional 3D render of a transparent plastic shopping bag with colorful medicine/product boxes inside it. 
-The boxes should have these labels clearly visible on them: ${medicineNames}. 
-Each box should have a different vibrant color (purple, blue, green, yellow, pink, orange, etc). 
-The boxes should look modern and clean with the text clearly readable. 
-The bag should be centered on a soft beige/cream background. 
-Style: clean, modern, professional product photography, studio lighting, high quality 3D render.`;
+    const prompt = `Create a professional, realistic 3D product photograph of a transparent white plastic shopping bag (like pharmacy bags) filled with colorful medicine boxes.
+
+COMPOSITION:
+- Centered transparent plastic shopping bag on clean beige/cream background
+- Inside the bag: ${medicines.length} colorful medicine boxes stacked naturally
+- Soft studio lighting from top-left creating gentle shadows
+
+MEDICINE BOXES (label each with): ${medicineNames}
+- Each box is a different vibrant color: purple, blue, green, yellow, pink, orange
+- Modern minimalist design with clean typography
+- Each box MUST display "Listra" logo in small text at bottom
+- Box sizes: medium rectangular pharmaceutical packaging style
+- Labels are clearly readable, facing forward
+
+STYLE:
+- Photo-realistic 3D render
+- Professional product photography aesthetic
+- Soft studio lighting, no harsh shadows
+- Clean, modern, professional
+- High quality, sharp details
+- Minimal design, pharmaceutical style`;
 
     console.log("Generating image with prompt:", prompt);
 

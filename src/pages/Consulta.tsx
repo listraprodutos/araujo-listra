@@ -40,6 +40,11 @@ const Consulta = () => {
   const dragConstraintsRef = useRef(null);
 
   const handleDragEnd = (symptom: Medicine, info: any) => {
+    if (bag.length >= 5) {
+      toast.error("Máximo de 5 remédios permitidos!");
+      return;
+    }
+
     const dropZone = document.getElementById("drop-zone");
     if (!dropZone) return;
 
@@ -165,10 +170,15 @@ const Consulta = () => {
             >
               <Card className="h-full">
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <span className="text-3xl">💊</span>
-                    Necessidades Disponíveis
-                  </h2>
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+                      <span className="text-3xl">💊</span>
+                      Necessidades Disponíveis
+                    </h2>
+                    <p className="text-sm text-muted-foreground">
+                      Selecione até 5 remédios para sua receita
+                    </p>
+                  </div>
 
                   <div className="space-y-4 mb-6">
                     {symptoms.map((symptom) => (
@@ -222,10 +232,15 @@ const Consulta = () => {
                 className="h-full border-4 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 to-background"
               >
                 <CardContent className="p-8 h-full flex flex-col">
-                  <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <ShoppingBag className="w-6 h-6 text-primary" />
-                    Sua Receita
-                  </h2>
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+                      <ShoppingBag className="w-6 h-6 text-primary" />
+                      Sua Receita
+                    </h2>
+                    <p className="text-sm text-muted-foreground">
+                      {bag.length}/5 remédios selecionados
+                    </p>
+                  </div>
 
                   <div className="flex-1 space-y-4 mb-6 overflow-y-auto min-h-[300px]">
                     {bag.length === 0 ? (
