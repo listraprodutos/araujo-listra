@@ -61,12 +61,6 @@ const HowWeWork = () => {
       ],
       description: "Crescemos nossos clientes e com nossos clientes!",
     },
-    {
-      icon: Users,
-      title: "VELOCIDADE + GOVERNANÇA",
-      description:
-        "Entregamos rápido sem abrir mão de qualidade. Versionamento, ambientes segregados, rollback ágil. Prontos para auditoria, compliance e segurança.",
-    },
   ];
 
   useEffect(() => {
@@ -251,12 +245,14 @@ const HowWeWork = () => {
         </div>
 
         {/* Differentials */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {differentials.map((diff, index) => {
             const Icon = diff.icon;
+            const isPartnerships = diff.partnerships !== undefined;
             return (
               <motion.div
                 key={index}
+                className={isPartnerships ? "md:col-span-2" : ""}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 2.5 + index * 0.2 }}
