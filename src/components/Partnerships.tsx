@@ -36,9 +36,9 @@ const Partnerships = () => {
       role: "Diretora de Mídia e BI",
     },
     {
-      company: "UNIDAS SEMINOVOS",
-      duration: "11 anos",
-      industry: "Automotivo",
+      company: "Mills",
+      duration: "4 anos de parceria",
+      industry: "Squad de Growth Marketing, TI e UX/UI",
       testimonial:
         "Ter um braço extra que possibilita entregas ágeis e inovadoras é o sonho de todo time de marketing",
       author: "Erika Araujo",
