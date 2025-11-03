@@ -32,7 +32,7 @@ const Partnerships = () => {
       industry: "Squad de TI e UX/UI",
       testimonial:
         "Ter um braço extra que nos possibilite entregas ágeis, inovadoras e assertivas é o sonho de todo time de marketing. Para nós, a Listra representa exatamente isso: são verdadeiros parceiros e estão conosco há anos, sempre entregando com alto nível e mergulhando de cabeça nos nossos projetos digitais. Agradecemos a todo o time da Listra pelo comprometimento de sempre, vamos juntos!",
-      author: "Roberto Mendes",
+      author: "Erika Araujo",
       role: "Diretora de Mídia e BI",
     },
     {
