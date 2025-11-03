@@ -13,7 +13,7 @@ const Partnerships = () => {
     duration: "8 anos de parceria",
     industry: "Estratégia, TI, Growth Marketing, IA",
     testimonial:
-      "A parceria com a Listra transformou completamente nossa presença digital. A equipe demonstrou profundo conhecimento técnico e entendimento estratégico do nosso negócio, entregando soluções que realmente fazem diferença nos resultados.",
+      "Falar da Listra seria como falar de parte da nossa empresa. É assim que sentimos. Estamos trabalhando juntos desde o início dos nossos projetos digitais. A disponibilidade e o comprometimento da equipe, sempre se envolvendo nas nossas necessidades como se fossem deles, muitas vezes até antecipando e propondo novos caminhos, nos leva a essa relação e a ter tal sentimento. Poderíamos ficar escrevendo linhas e linhas de adjetivos em relação a competência, dedicação e profissionalismo, mas o que temos resumidamente a dizer é, muito obrigado a todos profissionais que fazem parte dessa empresa, 'que é parte da nossa empresa'.",
     author: "Carlos Silva",
     role: "Diretor de TI",
     results: [
