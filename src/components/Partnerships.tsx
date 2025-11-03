@@ -6,6 +6,8 @@ import { Award, CheckCircle } from "lucide-react";
 import dmaLogoMain from "@/assets/dma-logo-main.png";
 import unidasLogoMain from "@/assets/unidas-logo-main.png";
 import millsLogoMain from "@/assets/mills-logo-main.png";
+import varejaoLogo from "@/assets/varejao-logo.png";
+import conquestLogo from "@/assets/conquest-logo.png";
 
 const Partnerships = () => {
   const ref = useRef(null);
@@ -38,15 +40,26 @@ const Partnerships = () => {
       role: "Diretora de Mídia e BI",
       logo: unidasLogoMain,
     },
+  ];
+
+  const additionalPartners = [
     {
       company: "Mills",
       duration: "4 anos de parceria",
-      industry: "Squad de Growth Marketing, TI e UX/UI",
-      testimonial:
-        "Ter um braço extra que possibilita entregas ágeis e inovadoras é o sonho de todo time de marketing",
-      author: "Erika Araujo",
-      role: "Gerente de Mídia e BI",
+      industry: "Growth Marketing, TI e UX/UI",
       logo: millsLogoMain,
+    },
+    {
+      company: "Varejão das Tintas",
+      duration: "1 ano de parceria",
+      industry: "Growth Marketing, TI e IA",
+      logo: varejaoLogo,
+    },
+    {
+      company: "Conquest Internet",
+      duration: "5 anos de parceria",
+      industry: "Growth Marketing, TI",
+      logo: conquestLogo,
     },
   ];
 
@@ -165,6 +178,37 @@ const Partnerships = () => {
               </Card>
             </motion.div>
           ))}
+
+          {/* Additional Partners Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <Card className="h-full bg-white border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 rounded-3xl">
+              <CardContent className="p-8">
+                <div className="space-y-6">
+                  {additionalPartners.map((partner, index) => (
+                    <div 
+                      key={index} 
+                      className={`flex items-start gap-4 ${index !== additionalPartners.length - 1 ? 'pb-6 border-b border-border' : ''}`}
+                    >
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.company} 
+                        className="h-10 w-auto object-contain flex-shrink-0"
+                      />
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold mb-1">{partner.company}</h3>
+                        <p className="text-sm font-semibold text-primary mb-1">{partner.duration}</p>
+                        <p className="text-sm text-muted-foreground">{partner.industry}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
 
         {/* Closing Text */}
