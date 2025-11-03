@@ -21,12 +21,12 @@ interface Medicine {
 }
 
 const initialSymptoms = [
-  { id: "criatividade", label: "Criatividade", color: "bg-gray-200" },
-  { id: "integracao", label: "Integração de Dados", color: "bg-gray-200" },
-  { id: "automacao", label: "Automação", color: "bg-gray-200" },
-  { id: "estrategia", label: "Estratégia Digital", color: "bg-gray-200" },
-  { id: "ia", label: "Inteligência Artificial", color: "bg-gray-200" },
-  { id: "cloud", label: "Cloud Computing", color: "bg-gray-200" },
+  { id: "criatividade", label: "Criatividade", color: "bg-white" },
+  { id: "integracao", label: "Integração de Dados", color: "bg-white" },
+  { id: "automacao", label: "Automação", color: "bg-white" },
+  { id: "estrategia", label: "Estratégia Digital", color: "bg-white" },
+  { id: "ia", label: "Inteligência Artificial", color: "bg-white" },
+  { id: "cloud", label: "Cloud Computing", color: "bg-white" },
 ];
 
 const Consulta = () => {
@@ -59,14 +59,9 @@ const Consulta = () => {
       y >= rect.top &&
       y <= rect.bottom
     ) {
-      // Add falling animation
-      setFallingItems([...fallingItems, symptom.id]);
-      setTimeout(() => {
-        setBag([...bag, symptom]);
-        setSymptoms(symptoms.filter(s => s.id !== symptom.id));
-        setFallingItems(fallingItems.filter(id => id !== symptom.id));
-        toast.success(`${symptom.label} adicionado à sua receita!`);
-      }, 600);
+      setBag([...bag, symptom]);
+      setSymptoms(symptoms.filter(s => s.id !== symptom.id));
+      toast.success(`${symptom.label} adicionado à sua receita!`);
     }
   };
 
@@ -75,7 +70,7 @@ const Consulta = () => {
       const newSymptom = {
         id: `custom-${Date.now()}`,
         label: customInput,
-        color: "bg-gray-200",
+        color: "bg-white",
       };
       
       setSymptoms([...symptoms, newSymptom]);
@@ -195,15 +190,14 @@ const Consulta = () => {
                         whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
                         initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
                         whileHover={{ rotate: 0, scale: 1.05 }}
-                        className={`${symptom.color} text-gray-800 px-6 py-4 cursor-grab active:cursor-grabbing shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all inline-block`}
+                        className={`${symptom.color} text-gray-800 px-6 py-4 cursor-grab active:cursor-grabbing shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200`}
                         style={{
-                          borderRadius: '2px',
-                          clipPath: 'polygon(1% 0%, 99% 2%, 98% 98%, 2% 99%)',
+                          borderRadius: '4px',
+                          clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
                           fontFamily: "'Caveat', cursive",
-                          width: 'fit-content',
                         }}
                       >
-                        <p className="font-bold text-center text-xl whitespace-nowrap">{symptom.label}</p>
+                        <p className="font-bold text-center text-xl">{symptom.label}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -288,48 +282,32 @@ const Consulta = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="relative h-full">
-                        {bag.map((medicine, index) => {
-                          const randomRotate = (index % 5) * 7 - 14;
-                          const randomX = (index % 3) * 30 - 30;
-                          const randomY = index * 60;
-                          
-                          return (
+                      <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-3">
+                        {bag.map((medicine, index) => (
+                          <Reorder.Item key={medicine.id} value={medicine}>
                             <motion.div
-                              key={medicine.id}
-                              initial={{ y: -100, opacity: 0, rotate: -45 }}
-                              animate={{ 
-                                y: randomY, 
-                                x: randomX,
-                                opacity: 1, 
-                                rotate: randomRotate
-                              }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 100,
-                                damping: 12,
-                                delay: index * 0.1
-                              }}
+                              layout
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
                               exit={{ opacity: 0, scale: 0.8 }}
-                              className={`${medicine.color} text-gray-800 px-6 py-4 shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow absolute group`}
+                              className={`${medicine.color} text-gray-800 p-5 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow relative group border border-gray-200`}
                               style={{
-                                borderRadius: '2px',
-                                clipPath: 'polygon(1% 0%, 99% 2%, 98% 98%, 2% 99%)',
+                                borderRadius: '4px',
+                                clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
                                 fontFamily: "'Caveat', cursive",
-                                width: 'fit-content',
                               }}
                             >
                               <button
                                 onClick={() => removeFromBag(medicine.id)}
-                                className="absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
+                                className="absolute top-2 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600 z-10"
                               >
-                                <X className="w-3 h-3" />
+                                <X className="w-4 h-4" />
                               </button>
-                              <p className="font-bold text-center text-lg whitespace-nowrap pr-2">{medicine.label}</p>
+                              <p className="font-bold text-center text-xl pr-8">{medicine.label}</p>
                             </motion.div>
-                          );
-                        })}
-                      </div>
+                          </Reorder.Item>
+                        ))}
+                      </Reorder.Group>
                     )}
                   </div>
 
