@@ -32,12 +32,12 @@ const WhyUs = () => {
                     <motion.div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300" whileHover={{ rotate: 5 }}>
                       <Icon className="w-10 h-10 text-white" strokeWidth={2} />
                     </motion.div>
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">{reason.title}</h3>
-                    <p className="text-lg text-primary font-semibold mb-4">{reason.subtitle}</p>
-                    <p className="text-base text-muted-foreground leading-relaxed mb-6">{reason.description}</p>
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors text-left">{reason.title}</h3>
+                    <p className="text-lg text-primary font-semibold mb-4 text-left">{reason.subtitle}</p>
+                    <p className="text-base text-muted-foreground leading-relaxed mb-6 text-left">{reason.description}</p>
                     <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
                       {reason.metrics.map((metric, idx) => (
-                        <div key={idx} className="text-center">
+                        <div key={idx} className="text-left">
                           <div className="text-3xl font-bold text-primary mb-1">{metric.value}</div>
                           <div className="text-sm text-muted-foreground">{metric.label}</div>
                         </div>
