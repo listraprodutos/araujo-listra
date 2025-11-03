@@ -43,7 +43,7 @@ const HowWeWork = () => {
       icon: Handshake,
       title: "PARCERIAS DURADOURAS",
       stats: [
-        { label: "EPA", value: "8 anos" },
+        { label: "DMA Distribuidora", value: "8 anos" },
         { label: "Unidas", value: "11 anos" },
         { label: "Mills", value: "4 anos" },
       ],
