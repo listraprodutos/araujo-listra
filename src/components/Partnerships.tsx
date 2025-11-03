@@ -10,7 +10,7 @@ const Partnerships = () => {
 
   const mainPartner = {
     company: "DMA Distribuidora",
-    duration: "4 anos de parceria",
+    duration: "8 anos de parceria",
     industry: "E-commerce",
     testimonial:
       "A parceria com a Listra transformou completamente nossa presença digital. A equipe demonstrou profundo conhecimento técnico e entendimento estratégico do nosso negócio, entregando soluções que realmente fazem diferença nos resultados.",
