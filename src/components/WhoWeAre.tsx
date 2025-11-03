@@ -14,7 +14,6 @@ const WhoWeAre = () => {
       icon: Layers,
       title: "Resultados exponenciais",
       subtitle: "Um parceiro completo para todas as frentes digitais.",
-      description: "Estratégia & Growth Marketing, Desenvolvimento de Soluções em TI, Inteligência Artificial para negócios. Um parceiro completo para todas as frentes digitais.",
     },
     {
       icon: Shield,
