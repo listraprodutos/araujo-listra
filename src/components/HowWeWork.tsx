@@ -44,7 +44,7 @@ const HowWeWork = () => {
       title: "PARCERIAS DURADOURAS",
       stats: [
         { label: "DMA Distribuidora", value: "8 anos" },
-        { label: "Unidas", value: "11 anos" },
+        { label: "Unidas Seminovos", value: "11 anos" },
         { label: "Mills", value: "4 anos" },
       ],
       description: "Crescemos COM nossos clientes, não só PARA eles",
