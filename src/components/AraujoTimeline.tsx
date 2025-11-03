@@ -265,8 +265,7 @@ const AraujoTimeline = () => {
             <img 
               src={araujoTemImage} 
               alt="Araujo Tem Pra Tudo - App Mobile" 
-              className="w-full h-auto rounded-2xl shadow-2xl"
-              style={{ mixBlendMode: 'multiply' }}
+              className="w-full h-auto"
             />
           </motion.div>
         </div>
