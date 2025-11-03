@@ -26,7 +26,9 @@ const AraujoTimeline = () => {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center">120 ANOS CONSTRUINDO<br /><span className="text-araujo-blue">CONFIANÇA</span></h2>
             <img src={araujoALogo} alt="Logo Araujo" className="w-24 h-24 sm:w-32 sm:h-32 object-contain" />
           </div>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-center">Uma história de pioneirismo que merece um parceiro à altura</p>
+          <div className="flex justify-center">
+            <p className="text-xl text-muted-foreground max-w-2xl text-center">Uma história de pioneirismo que merece um parceiro à altura</p>
+          </div>
         </motion.div>
 
         {/* Horizontal Timeline */}
