@@ -8,7 +8,7 @@ const BHForMinas = () => {
     once: true,
     margin: "-100px"
   });
-  return <section ref={ref} className="py-32 bg-gradient-to-b from-araujo-blue-soft to-background relative overflow-hidden">
+  return <section ref={ref} className="py-20 bg-gradient-to-b from-araujo-blue-soft to-background relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-64 h-64 bg-araujo-blue rounded-full blur-3xl" />
