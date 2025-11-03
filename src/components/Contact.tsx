@@ -10,7 +10,7 @@ const Contact = () => {
     once: true,
     margin: "-100px"
   });
-  return <section ref={ref} className="py-32 bg-gradient-to-b from-background to-araujo-blue-soft">
+  return <section ref={ref} className="py-16 bg-gradient-to-b from-background to-araujo-blue-soft">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div className="text-center mb-16" initial={{
