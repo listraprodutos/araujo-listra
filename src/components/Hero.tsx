@@ -72,41 +72,42 @@ const Hero = () => {
         />
       </div>
 
+      {/* Logos Fixed at Color Meeting Point */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center gap-12 sm:gap-16"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+      >
+        <motion.img
+          src={araujoLogo}
+          alt="Araujo"
+          className="h-16 sm:h-20 w-auto"
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 1.8, duration: 0.6 }}
+        />
+        <motion.div
+          className="text-6xl text-white/80"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 2.1, type: "spring", stiffness: 200 }}
+        >
+          &
+        </motion.div>
+        <motion.img
+          src={listraLogo}
+          alt="Listra"
+          className="h-12 sm:h-16 w-auto"
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 1.8, duration: 0.6 }}
+        />
+      </motion.div>
+
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Logo Animation */}
-          <motion.div
-            className="mb-12 flex items-center justify-center gap-12 sm:gap-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.5 }}
-          >
-            <motion.img
-              src={araujoLogo}
-              alt="Araujo"
-              className="h-16 sm:h-20 w-auto"
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 1.8, duration: 0.6 }}
-            />
-            <motion.div
-              className="text-6xl text-white/80"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 2.1, type: "spring", stiffness: 200 }}
-            >
-              &
-            </motion.div>
-            <motion.img
-              src={listraLogo}
-              alt="Listra"
-              className="h-12 sm:h-16 w-auto"
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 1.8, duration: 0.6 }}
-            />
-          </motion.div>
+        <div className="max-w-5xl mx-auto text-center pt-48">
 
           {/* Main Title */}
           <motion.h1
