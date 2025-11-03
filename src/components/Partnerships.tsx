@@ -27,7 +27,7 @@ const Partnerships = () => {
 
   const otherPartners = [
     {
-      company: "EPA SUPERMERCADOS",
+      company: "Mills",
       duration: "8 anos",
       industry: "Varejo",
       testimonial:
