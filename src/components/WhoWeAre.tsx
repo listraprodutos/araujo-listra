@@ -18,7 +18,7 @@ const WhoWeAre = () => {
     },
     {
       icon: Shield,
-      title: "Velocidade e Governança",
+      title: "Resultados exponenciais",
       subtitle: "Governança que funciona",
       description: "Ambientes segregados, versionamento completo, rollback ágil. Velocidade de startup com governança de corporação. Prontos para auditoria e compliance.",
     },
