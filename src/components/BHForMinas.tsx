@@ -95,9 +95,9 @@ const BHForMinas = () => {
                 Vamos juntos?
               </p>
 
-              <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-16 max-w-xs mx-auto" />
+              <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-4 max-w-xs mx-auto" />
 
-              <motion.div className="pt-12 bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20" initial={{
+              <motion.div className="bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20" initial={{
               opacity: 0,
               scale: 0.9
             }} animate={isInView ? {
