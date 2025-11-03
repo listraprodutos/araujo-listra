@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { RefreshCw, Handshake, Users, TrendingUp } from "lucide-react";
+import dmaLogo from "@/assets/dma-logo.png";
 const HowWeWork = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -233,6 +234,11 @@ const HowWeWork = () => {
           }}>
                 <Card className="h-full bg-white border-2 border-transparent hover:border-primary hover:shadow-xl transition-all duration-300">
                   <CardContent className="pt-8 pb-8 px-6">
+                    {index === 0 && (
+                      <div className="mb-4 flex justify-center">
+                        <img src={dmaLogo} alt="DMA Distribuidora" className="h-16 object-contain" />
+                      </div>
+                    )}
                     <div className="text-4xl font-bold text-primary mb-4">{partnership.years}</div>
                     <div className="font-semibold text-foreground mb-3 leading-tight">{partnership.name}</div>
                     <a href={partnership.website.startsWith('http') ? partnership.website : `https://${partnership.website}`} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline break-all">
