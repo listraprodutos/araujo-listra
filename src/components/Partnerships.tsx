@@ -14,7 +14,7 @@ const Partnerships = () => {
     industry: "Estratégia, TI, Growth Marketing, IA",
     testimonial:
       "Falar da Listra seria como falar de parte da nossa empresa. É assim que sentimos. Estamos trabalhando juntos desde o início dos nossos projetos digitais. A disponibilidade e o comprometimento da equipe, sempre se envolvendo nas nossas necessidades como se fossem deles, muitas vezes até antecipando e propondo novos caminhos, nos leva a essa relação e a ter tal sentimento. Poderíamos ficar escrevendo linhas e linhas de adjetivos em relação a competência, dedicação e profissionalismo, mas o que temos resumidamente a dizer é, muito obrigado a todos profissionais que fazem parte dessa empresa, 'que é parte da nossa empresa'.",
-    author: "Carlos Silva",
+    author: "Roberto Gosende",
     role: "Diretor de TI",
     results: [
       { metric: "60%", label: "redução de custos de infraestrutura" },
