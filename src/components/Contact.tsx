@@ -44,7 +44,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          <motion.div className="mb-16" initial={{
+          <motion.div className="mb-8" initial={{
           opacity: 0,
           y: 30
         }} animate={isInView ? {
