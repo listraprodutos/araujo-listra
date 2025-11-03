@@ -3,9 +3,16 @@ import { motion, Reorder } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Plus, ShoppingBag } from "lucide-react";
+import { ArrowLeft, Plus, ShoppingBag, Loader2, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface Medicine {
   id: string;
@@ -27,6 +34,9 @@ const Consulta = () => {
   const [symptoms, setSymptoms] = useState(initialSymptoms);
   const [bag, setBag] = useState<Medicine[]>([]);
   const [customInput, setCustomInput] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generatedImage, setGeneratedImage] = useState<string | null>(null);
+  const [showImageDialog, setShowImageDialog] = useState(false);
   const dragConstraintsRef = useRef(null);
 
   const handleDragEnd = (symptom: Medicine, info: any) => {
@@ -74,13 +84,47 @@ const Consulta = () => {
     }
   };
 
-  const finishConsultation = () => {
+  const finishConsultation = async () => {
     if (bag.length === 0) {
       toast.error("Adicione pelo menos uma necessidade à sua receita!");
       return;
     }
-    toast.success("Receita enviada! Entraremos em contato em breve.");
-    setTimeout(() => navigate("/"), 2000);
+
+    setIsGenerating(true);
+    toast.loading("Gerando sua imagem personalizada...");
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-medicine-bag`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            medicines: bag,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Erro ao gerar imagem");
+      }
+
+      const data = await response.json();
+      setGeneratedImage(data.imageUrl);
+      setShowImageDialog(true);
+      toast.success("Imagem gerada com sucesso!");
+    } catch (error) {
+      console.error("Error generating image:", error);
+      toast.error(
+        error instanceof Error ? error.message : "Erro ao gerar imagem. Tente novamente."
+      );
+    } finally {
+      setIsGenerating(false);
+      toast.dismiss();
+    }
   };
 
   return (
@@ -216,11 +260,20 @@ const Consulta = () => {
 
                   <Button
                     onClick={finishConsultation}
-                    disabled={bag.length === 0}
+                    disabled={bag.length === 0 || isGenerating}
                     size="lg"
                     className="w-full text-lg py-6"
                   >
-                    Enviar Receita ({bag.length} {bag.length === 1 ? "remédio" : "remédios"})
+                    {isGenerating ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Gerando Imagem...
+                      </>
+                    ) : (
+                      <>
+                        Enviar Receita ({bag.length} {bag.length === 1 ? "remédio" : "remédios"})
+                      </>
+                    )}
                   </Button>
                 </CardContent>
               </Card>
@@ -228,6 +281,43 @@ const Consulta = () => {
           </div>
         </div>
       </div>
+
+      <Dialog open={showImageDialog} onOpenChange={setShowImageDialog}>
+        <DialogContent className="max-w-3xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">Sua Receita Digital!</DialogTitle>
+            <DialogDescription>
+              Aqui está a visualização da sua sacola com os remédios selecionados
+            </DialogDescription>
+          </DialogHeader>
+          <div className="relative">
+            {generatedImage && (
+              <img
+                src={generatedImage}
+                alt="Sacola de remédios gerada"
+                className="w-full h-auto rounded-lg"
+              />
+            )}
+          </div>
+          <div className="flex gap-4 justify-end">
+            <Button
+              variant="outline"
+              onClick={() => setShowImageDialog(false)}
+            >
+              Fechar
+            </Button>
+            <Button
+              onClick={() => {
+                setShowImageDialog(false);
+                toast.success("Receita enviada! Entraremos em contato em breve.");
+                setTimeout(() => navigate("/"), 2000);
+              }}
+            >
+              Confirmar e Enviar
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -1,0 +1,4 @@
+project_id = "qylpachdtqeqnocagdcx"
+
+[functions.generate-medicine-bag]
+verify_jwt = false
