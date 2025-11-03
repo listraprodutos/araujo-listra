@@ -37,6 +37,7 @@ const Consulta = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [showImageDialog, setShowImageDialog] = useState(false);
+  const [fallingItems, setFallingItems] = useState<string[]>([]);
   const dragConstraintsRef = useRef(null);
 
   const handleDragEnd = (symptom: Medicine, info: any) => {
@@ -58,9 +59,14 @@ const Consulta = () => {
       y >= rect.top &&
       y <= rect.bottom
     ) {
-      setBag([...bag, symptom]);
-      setSymptoms(symptoms.filter(s => s.id !== symptom.id));
-      toast.success(`${symptom.label} adicionado à sua receita!`);
+      // Add falling animation
+      setFallingItems([...fallingItems, symptom.id]);
+      setTimeout(() => {
+        setBag([...bag, symptom]);
+        setSymptoms(symptoms.filter(s => s.id !== symptom.id));
+        setFallingItems(fallingItems.filter(id => id !== symptom.id));
+        toast.success(`${symptom.label} adicionado à sua receita!`);
+      }, 600);
     }
   };
 
@@ -134,6 +140,7 @@ const Consulta = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
+      <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
       <div className="container mx-auto px-4 py-8">
         <Button
           variant="ghost"
@@ -181,7 +188,7 @@ const Consulta = () => {
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    {symptoms.map((symptom) => (
+                    {symptoms.map((symptom, index) => (
                       <motion.div
                         key={symptom.id}
                         drag
@@ -189,9 +196,16 @@ const Consulta = () => {
                         dragElastic={0.1}
                         onDragEnd={(e, info) => handleDragEnd(symptom, info)}
                         whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
-                        className={`${symptom.color} text-white p-4 rounded-xl cursor-grab active:cursor-grabbing shadow-lg hover:shadow-xl transition-shadow`}
+                        initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
+                        whileHover={{ rotate: 0, scale: 1.05 }}
+                        className={`${symptom.color} text-white p-6 cursor-grab active:cursor-grabbing shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all`}
+                        style={{
+                          borderRadius: '2px',
+                          clipPath: 'polygon(1% 0%, 99% 2%, 98% 98%, 2% 99%)',
+                          fontFamily: "'Caveat', cursive",
+                        }}
                       >
-                        <p className="font-bold text-center">{symptom.label}</p>
+                        <p className="font-bold text-center text-2xl">{symptom.label}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -226,50 +240,87 @@ const Consulta = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
+              className="relative"
             >
+              {/* Bag SVG Background */}
+              <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-0">
+                <svg
+                  viewBox="0 0 300 400"
+                  className="w-full h-full opacity-10"
+                  style={{ maxHeight: '500px' }}
+                >
+                  <path
+                    d="M 50 80 Q 50 60 70 60 L 100 60 Q 100 30 130 30 L 170 30 Q 170 60 200 60 L 230 60 Q 250 60 250 80 L 250 350 Q 250 380 220 380 L 80 380 Q 50 380 50 350 Z"
+                    fill="currentColor"
+                    className="text-primary/20"
+                  />
+                  <path
+                    d="M 100 60 Q 110 45 130 45 L 170 45 Q 190 45 200 60"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    className="text-primary/20"
+                  />
+                </svg>
+              </div>
+
               <Card 
                 id="drop-zone"
-                className="h-full border-4 border-dashed border-primary/30 bg-gradient-to-br from-primary/5 to-background"
+                className="h-full border-0 bg-transparent relative z-10"
               >
                 <CardContent className="p-8 h-full flex flex-col">
-                  <div className="mb-6">
-                    <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+                  <div className="mb-6 text-center">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
                       <ShoppingBag className="w-6 h-6 text-primary" />
                       Sua Receita
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                      {bag.length}/5 remédios selecionados
+                      {bag.length}/5 papéis selecionados
                     </p>
                   </div>
 
-                  <div className="flex-1 space-y-4 mb-6 overflow-y-auto min-h-[300px]">
+                  <div className="flex-1 mb-6 overflow-y-auto min-h-[300px] relative">
                     {bag.length === 0 ? (
                       <div className="h-full flex items-center justify-center text-center text-muted-foreground">
                         <div>
                           <ShoppingBag className="w-16 h-16 mx-auto mb-4 opacity-20" />
-                          <p>Arraste as necessidades aqui</p>
+                          <p>Arraste os papéis aqui</p>
                         </div>
                       </div>
                     ) : (
-                      <Reorder.Group axis="y" values={bag} onReorder={setBag}>
-                        {bag.map((medicine) => (
-                          <Reorder.Item key={medicine.id} value={medicine}>
-                            <motion.div
-                              layout
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              exit={{ opacity: 0, scale: 0.8 }}
-                              className={`${medicine.color} text-white p-4 rounded-xl shadow-lg mb-3 cursor-pointer hover:shadow-xl transition-shadow`}
-                              onClick={() => removeFromBag(medicine.id)}
-                            >
-                              <p className="font-bold text-center">{medicine.label}</p>
-                              <p className="text-xs text-center text-white/80 mt-1">
-                                Clique para remover
-                              </p>
-                            </motion.div>
-                          </Reorder.Item>
+                      <div className="space-y-3 pt-4">
+                        {bag.map((medicine, index) => (
+                          <motion.div
+                            key={medicine.id}
+                            layout
+                            initial={{ y: -100, opacity: 0, rotate: -45 }}
+                            animate={{ 
+                              y: 0, 
+                              opacity: 1, 
+                              rotate: index % 2 === 0 ? -3 : 3 
+                            }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 100,
+                              damping: 12,
+                              delay: index * 0.1
+                            }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            className={`${medicine.color} text-white p-5 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow`}
+                            style={{
+                              borderRadius: '2px',
+                              clipPath: 'polygon(1% 0%, 99% 2%, 98% 98%, 2% 99%)',
+                              fontFamily: "'Caveat', cursive",
+                            }}
+                            onClick={() => removeFromBag(medicine.id)}
+                          >
+                            <p className="font-bold text-center text-xl">{medicine.label}</p>
+                            <p className="text-xs text-center text-white/80 mt-1">
+                              Clique para remover
+                            </p>
+                          </motion.div>
                         ))}
-                      </Reorder.Group>
+                      </div>
                     )}
                   </div>
 
