@@ -27,7 +27,7 @@ const Partnerships = () => {
 
   const otherPartners = [
     {
-      company: "Mills",
+      company: "Unidas",
       duration: "13 anos de parceria",
       industry: "Squad de TI e UX/UI",
       testimonial:
