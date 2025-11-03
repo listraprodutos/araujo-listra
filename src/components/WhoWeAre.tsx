@@ -13,7 +13,7 @@ const WhoWeAre = () => {
     {
       icon: Layers,
       title: "DIVERSAS FRENTES",
-      subtitle: "Não fazemos uma coisa só",
+      subtitle: "Um parceiro completo para todas as frentes digitais.",
       description: "Estratégia & Growth Marketing, Desenvolvimento de Soluções em TI, Inteligência Artificial para negócios. Um parceiro completo para todas as frentes digitais.",
     },
     {
