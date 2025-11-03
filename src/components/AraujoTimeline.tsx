@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Store, Users, TrendingUp, Sparkles, Smartphone } from "lucide-react";
 import araujoTemImage from "@/assets/araujo-tem-transparent.png";
+import araujoALogo from "@/assets/araujo-a-logo.png";
 
 const AraujoTimeline = () => {
   const ref = useRef(null);
@@ -20,9 +21,12 @@ const AraujoTimeline = () => {
   return (
     <section ref={ref} className="py-32 bg-gradient-to-b from-background to-araujo-blue-soft">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-20" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">120 ANOS CONSTRUINDO<br /><span className="text-araujo-blue">CONFIANÇA</span></h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Uma história de pioneirismo que merece um parceiro à altura</p>
+        <motion.div className="mb-20" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
+          <div className="flex items-center justify-center gap-8 mb-6 flex-wrap">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center">120 ANOS CONSTRUINDO<br /><span className="text-araujo-blue">CONFIANÇA</span></h2>
+            <img src={araujoALogo} alt="Logo Araujo" className="w-24 h-24 sm:w-32 sm:h-32 object-contain" />
+          </div>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-center">Uma história de pioneirismo que merece um parceiro à altura</p>
         </motion.div>
 
         {/* Horizontal Timeline */}
