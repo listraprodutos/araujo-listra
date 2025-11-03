@@ -11,11 +11,11 @@ const AraujoTimeline = () => {
   const [activeYear, setActiveYear] = useState(2);
 
   const timeline = [
-    { year: "1904", title: "A Fundação", description: "Nasceu em BH quando a cidade tinha apenas 7 anos", icon: Store },
-    { year: "1933", title: "Expansão", description: "Primeira filial. Começou a história de crescimento", icon: Users },
-    { year: "1950", title: "Inovação", description: "Pioneiros em varejo farmacêutico em Minas", icon: TrendingUp },
-    { year: "1980", title: "Consolidação", description: "Referência absoluta em saúde e bem-estar", icon: Sparkles },
-    { year: "2024", title: "Digital", description: "Araujo Tem: tecnologia encontra tradição", icon: Smartphone },
+    { year: "1906", title: "Fundação", description: "", icon: Store },
+    { year: "1933", title: "1ª drogaria 24h de BH", description: "", icon: Users },
+    { year: "1963", title: "1º telemarketing do Brasil", description: "", icon: TrendingUp },
+    { year: "1990", title: "1º drive-thru", description: "", icon: Sparkles },
+    { year: "HOJE", title: "Modelo drugstore inovador", description: "", icon: Smartphone },
   ];
 
   return (
