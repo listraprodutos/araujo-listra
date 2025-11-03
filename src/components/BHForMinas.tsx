@@ -1,74 +1,112 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { MapPin, Heart } from "lucide-react";
 
 const BHForMinas = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-araujo-blue-soft to-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-32 bg-gradient-to-b from-araujo-blue-soft to-background relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-araujo-blue rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold mb-8">
-              <span className="text-gradient">💜 DE BH PARA MINAS</span>
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <Heart className="w-12 h-12 text-primary" strokeWidth={2} fill="currentColor" />
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+                <span className="text-primary">DE BH PARA MINAS</span>
+              </h2>
+            </div>
           </motion.div>
 
           <motion.div
-            className="space-y-8 text-lg sm:text-xl leading-relaxed"
+            className="space-y-12 text-lg sm:text-xl leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <p className="text-center">
-              <span className="font-bold">Desde 2011 em Belo Horizonte.</span><br />
-              15 anos entendendo o jeito mineiro de fazer negócio.
-            </p>
+            <div className="text-center bg-white/50 backdrop-blur-sm rounded-3xl p-10 border-2 border-border">
+              <MapPin className="w-10 h-10 text-primary mx-auto mb-4" strokeWidth={2} />
+              <p className="text-2xl">
+                <span className="font-bold">Desde 2011 em Belo Horizonte.</span>
+                <br />
+                <span className="text-muted-foreground">
+                  15 anos entendendo o jeito mineiro de fazer negócio.
+                </span>
+              </p>
+            </div>
 
-            <p className="text-center text-muted-foreground">
-              Assim como a Araujo nasceu em 1906 quando BH tinha apenas 9 anos,<br />
+            <p className="text-center text-xl text-muted-foreground">
+              Assim como a Araujo nasceu em 1906 quando BH tinha apenas 9 anos,
+              <br />
               nós crescemos junto com a transformação digital de Minas.
             </p>
 
-            <div className="h-px bg-gradient-hero my-12 max-w-xs mx-auto" />
+            <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-16 max-w-xs mx-auto" />
 
-            <div className="space-y-6 text-center">
-              <p className="font-semibold text-xl">
-                Não vamos "estudar" a mineiridade.<br />
-                Nós <span className="text-gradient">VIVEMOS</span> ela todos os dias.
+            <div className="space-y-8 text-center">
+              <p className="font-bold text-2xl lg:text-3xl">
+                Não vamos "estudar" a mineiridade.
+                <br />
+                Nós <span className="text-primary">VIVEMOS</span> ela todos os dias.
               </p>
 
-              <div className="space-y-4 text-muted-foreground">
-                <p>Conhecemos o orgulho de ter a Araujo na esquina.</p>
-                <p>Conhecemos a confiança que o nome de vocês carrega.</p>
-                <p>Conhecemos o compromisso que 120 anos exigem.</p>
+              <div className="grid sm:grid-cols-3 gap-6 mt-12">
+                {[
+                  "Conhecemos o orgulho de ter a Araujo na esquina",
+                  "Conhecemos a confiança que o nome de vocês carrega",
+                  "Conhecemos o compromisso que 120 anos exigem",
+                ].map((text, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-border"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <p className="text-base text-muted-foreground">{text}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
-            <div className="h-px bg-gradient-hero my-12 max-w-xs mx-auto" />
+            <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-16 max-w-xs mx-auto" />
 
-            <div className="text-center space-y-6">
-              <p className="text-xl">
-                E é por isso que queremos fazer parte dessa história.<br />
-                Não para contar pra vocês como fazer.<br />
-                Mas para construir <span className="font-bold text-gradient">JUNTO</span> o próximo capítulo.
+            <div className="text-center space-y-8">
+              <p className="text-2xl font-medium">
+                E é por isso que queremos fazer parte dessa história.
+                <br />
+                Não para contar pra vocês como fazer.
+                <br />
+                Mas para construir <span className="font-bold text-primary">JUNTO</span> o próximo
+                capítulo.
               </p>
 
               <motion.div
-                className="pt-8"
+                className="pt-12 bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                <div className="text-3xl font-bold mb-2">LISTRA</div>
-                <div className="text-muted-foreground">15 anos criando impacto digital. Juntos.</div>
+                <div className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-araujo-blue bg-clip-text text-transparent">
+                  LISTRA
+                </div>
+                <div className="text-xl text-muted-foreground font-medium">
+                  15 anos criando impacto digital. Juntos.
+                </div>
               </motion.div>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Layers, Shield, Zap } from "lucide-react";
 import seloIcon from "@/assets/selo.png";
 
 const WhoWeAre = () => {
@@ -10,134 +11,83 @@ const WhoWeAre = () => {
 
   const services = [
     {
-      title: "ESTRATÉGIA & GROWTH MARKETING",
-      subtitle: "Pensamos crescimento constantemente",
-      description: "Estratégias data-driven baseadas em diagnóstico profundo. Tráfego pago (Google, Meta, LinkedIn, TikTok), SEO e conteúdo estratégico, branding e posicionamento, automação, CRM e retenção, dashboards e análise contínua.",
-      footer: "Não vendemos 'X posts/mês'\nVendemos crescimento com ROI previsível",
+      icon: Layers,
+      title: "DIVERSAS FRENTES",
+      subtitle: "Não fazemos uma coisa só",
+      description: "Estratégia & Growth Marketing, Desenvolvimento de Soluções em TI, Inteligência Artificial para negócios. Um parceiro completo para todas as frentes digitais.",
     },
     {
-      title: "SOLUÇÕES EM TI",
-      subtitle: "Construímos o que o crescimento exige",
-      description: "Squads ágeis (dedicados ou compartilhados), portais, plataformas e integrações, infraestrutura cloud (AWS, Azure), DevOps, CI/CD e governança, integrações ERP, CRM, e-commerce, sustentação contínua com SLA.",
-      footer: "Velocidade de startup\nGovernança de corporação",
+      icon: Shield,
+      title: "SEGURANÇA",
+      subtitle: "Governança que funciona",
+      description: "Ambientes segregados, versionamento completo, rollback ágil. Velocidade de startup com governança de corporação. Prontos para auditoria e compliance.",
     },
     {
-      title: "IA PARA NEGÓCIOS",
-      subtitle: "Inteligência que amplifica resultados",
-      description: "Diagnóstico e estratégia de IA aplicada, automação inteligente de processos, produtos e MVPs com IA, agentes e chatbots avançados, integrações com sistemas internos.",
-      footer: "IA que gera eficiência real\nNão apenas tecnologia pela tecnologia",
+      icon: Zap,
+      title: "ALTERNATIVA",
+      subtitle: "Não é mais do mesmo",
+      description: "TI + Growth integrados em um só time. Quando marketing precisa de tecnologia, nossa TI acelera. Quando TI precisa de estratégia, nosso Growth atua. Resultados exponenciais.",
     },
   ];
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-background to-muted">
+    <section ref={ref} className="py-32 bg-gradient-to-b from-background via-muted/30 to-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <h2 className="text-4xl sm:text-5xl font-bold">
-              <span className="text-primary">MINEIROS COMO VOCÊS</span>
+          <div className="flex items-center justify-center gap-6 mb-8">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+              <span className="text-foreground">MINEIROS COMO VOCÊS</span>
             </h2>
-            <div className="relative w-24 h-24 flex-shrink-0">
+            <div className="relative w-20 h-20 flex-shrink-0">
               <img 
                 src={seloIcon} 
-                alt="Selo Lovable" 
+                alt="Selo" 
                 className="w-full h-full"
               />
             </div>
           </div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-snug">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Somos uma empresa de Belo Horizonte que há 15 anos conecta TI e Growth Marketing para impulsionar negócios. Acreditamos em inovação com propósito.
           </p>
         </motion.div>
 
-        {/* Desktop: Grid layout */}
-        <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => {
+            const Icon = service.icon;
             return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <Card className="h-full bg-white border border-gray-200 rounded-3xl hover:shadow-md transition-shadow duration-300">
-                  <CardContent className="p-8">
-                    {/* Icon circle */}
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                      <div className="w-6 h-6 rounded-sm border-2 border-primary" />
+                <Card className="h-full bg-white border-2 border-border hover:border-primary/50 rounded-3xl hover:shadow-xl transition-all duration-300 group">
+                  <CardContent className="p-8 lg:p-10">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                      <Icon className="w-8 h-8 text-primary" strokeWidth={2} />
                     </div>
                     
-                    <h3 className="text-lg font-bold mb-2 text-foreground leading-tight">
+                    <h3 className="text-xl font-bold mb-3 text-foreground leading-tight">
                       {service.title}
                     </h3>
                     
-                    <p className="text-sm text-primary font-semibold mb-4">
+                    <p className="text-base text-primary font-semibold mb-4">
                       {service.subtitle}
                     </p>
                     
-                    <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                    <p className="text-base text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
-                    
-                    <div className="pt-4 border-t border-gray-200">
-                      <p className="font-semibold text-sm text-foreground whitespace-pre-line leading-relaxed">
-                        {service.footer}
-                      </p>
-                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
             );
           })}
-        </div>
-
-        {/* Mobile: Horizontal scroll */}
-        <div className="md:hidden overflow-x-auto scrollbar-hide -mx-4 px-4">
-          <div className="flex gap-4 pb-4">
-            {services.map((service, index) => {
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="flex-shrink-0 w-[85vw]"
-                >
-                  <Card className="h-full bg-white border border-gray-200 rounded-3xl hover:shadow-md transition-shadow duration-300">
-                    <CardContent className="p-8">
-                      {/* Icon circle */}
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                        <div className="w-6 h-6 rounded-sm border-2 border-primary" />
-                      </div>
-                      
-                      <h3 className="text-lg font-bold mb-2 text-foreground leading-tight">
-                        {service.title}
-                      </h3>
-                      
-                      <p className="text-sm text-primary font-semibold mb-4">
-                        {service.subtitle}
-                      </p>
-                      
-                      <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                        {service.description}
-                      </p>
-                      
-                      <div className="pt-4 border-t border-gray-200">
-                        <p className="font-semibold text-sm text-foreground whitespace-pre-line leading-relaxed">
-                          {service.footer}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>
