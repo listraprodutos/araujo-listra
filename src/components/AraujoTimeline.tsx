@@ -59,6 +59,22 @@ const AraujoTimeline = () => {
           </div>
         </div>
 
+        {/* Texto após Timeline */}
+        <motion.div 
+          className="text-center max-w-4xl mx-auto mt-20 mb-12" 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={isInView ? { opacity: 1, y: 0 } : {}} 
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-araujo-blue mb-4">
+            E o próximo capítulo?
+          </h3>
+          <p className="text-xl sm:text-2xl lg:text-3xl text-foreground leading-relaxed">
+            120 anos de história merecem um parceiro<br />
+            que pense os próximos 120 juntos.
+          </p>
+        </motion.div>
+
         {/* Next Chapter */}
         <motion.div className="max-w-6xl mx-auto mt-32" initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.8 }}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
