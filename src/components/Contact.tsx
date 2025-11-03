@@ -104,7 +104,7 @@ const Contact = () => {
                       </div>
                     </motion.a>
 
-                    <motion.a href="https://wa.me/5531999999999" target="_blank" rel="noopener noreferrer" className="p-6 rounded-2xl bg-muted hover:bg-primary/10 transition-colors group border-2 border-transparent hover:border-primary/20" whileHover={{
+                    <motion.a href="https://wa.me/5531992485979" target="_blank" rel="noopener noreferrer" className="p-6 rounded-2xl bg-muted hover:bg-primary/10 transition-colors group border-2 border-transparent hover:border-primary/20" whileHover={{
                     scale: 1.02
                   }}>
                       <div className="flex items-center gap-3 mb-3">
@@ -114,7 +114,7 @@ const Contact = () => {
                         <div className="text-sm text-muted-foreground font-medium">WhatsApp</div>
                       </div>
                       <div className="text-base font-semibold group-hover:text-primary transition-colors">
-                        (31) 99999-9999
+                        (31) 99248-5979 - Mariana Chebly
                       </div>
                     </motion.a>
                   </div>
