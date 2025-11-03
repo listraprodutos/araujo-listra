@@ -10,10 +10,10 @@ const Contact = () => {
     once: true,
     margin: "-100px"
   });
-  return <section ref={ref} className="py-16 bg-gradient-to-b from-background to-araujo-blue-soft">
+  return <section ref={ref} className="py-12 bg-gradient-to-b from-background to-araujo-blue-soft">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div className="text-center mb-16" initial={{
+        <div className="max-w-3xl mx-auto">
+          <motion.div className="text-center mb-10" initial={{
           opacity: 0,
           y: 30
         }} animate={isInView ? {
@@ -73,7 +73,7 @@ const Contact = () => {
           delay: 0.6
         }}>
             <Card className="bg-white border-2 border-border rounded-3xl hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-10">
+              <CardContent className="p-6">
                 <div className="flex items-center justify-center gap-3 mb-8">
                   <MessageCircle className="w-8 h-8 text-primary" strokeWidth={2} />
                   <h3 className="text-2xl font-bold text-center">
