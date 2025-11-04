@@ -1,5 +1,5 @@
 import listraLogo from "@/assets/listra-logo-white.png";
-import { Heart, Instagram, MessageCircle } from "lucide-react";
+import { Heart, Instagram, MessageCircle, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -33,6 +33,13 @@ const Footer = () => {
               aria-label="WhatsApp"
             >
               <MessageCircle className="w-6 h-6 text-white" />
+            </a>
+            <a 
+              href="mailto:contato@listradigital.com.br"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-6 h-6 text-white" />
             </a>
           </div>
           
