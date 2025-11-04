@@ -252,27 +252,42 @@ const Consulta = () => {
                         whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
                         initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
                         whileHover={{ rotate: 0, scale: 1.05 }}
-                        className={`${symptom.color} text-gray-800 px-4 lg:px-6 py-3 lg:py-4 ${bag.length < 5 ? 'cursor-grab active:cursor-grabbing lg:cursor-grab' : 'cursor-not-allowed opacity-50'} shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200 relative group`}
+                        className={`hidden lg:block ${symptom.color} text-gray-800 px-6 py-4 ${bag.length < 5 ? 'cursor-grab active:cursor-grabbing' : 'cursor-not-allowed opacity-50'} shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200`}
                         style={{
                           borderRadius: '4px',
                           clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
                           fontFamily: "'Caveat', cursive",
                         }}
                       >
-                        <p className="font-bold text-center text-xl lg:text-2xl">{symptom.label}</p>
+                        <p className="font-bold text-center text-2xl">{symptom.label}</p>
+                      </motion.div>
+                    ))}
+                    
+                    {/* Mobile version - no drag */}
+                    {symptoms.map((symptom, index) => (
+                      <div
+                        key={`mobile-${symptom.id}`}
+                        className={`lg:hidden ${symptom.color} text-gray-800 px-4 py-3 shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-all border border-gray-200 relative ${bag.length >= 5 ? 'opacity-50' : ''}`}
+                        style={{
+                          borderRadius: '4px',
+                          clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
+                          fontFamily: "'Caveat', cursive",
+                          transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`,
+                        }}
+                      >
+                        <p className="font-bold text-center text-xl">{symptom.label}</p>
                         
-                        {/* Mobile: Tap button */}
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             handleTapToAdd(symptom);
                           }}
                           disabled={bag.length >= 5}
-                          className="lg:hidden absolute top-2 right-2 w-8 h-8 rounded-full bg-listra-footer text-white flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity disabled:opacity-30"
+                          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-listra-footer text-white flex items-center justify-center opacity-90 active:opacity-100 transition-opacity disabled:opacity-30"
                         >
                           <Plus className="w-5 h-5" />
                         </button>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
 
