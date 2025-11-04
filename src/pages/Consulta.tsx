@@ -278,7 +278,7 @@ const Consulta = () => {
                         onDragEnd={(e, info) => handleDragEnd(symptom, info)}
                         whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
                         initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
-                        whileHover={{ rotate: 0, scale: 1.05 }}
+                        whileHover={{ rotate: 0, backgroundColor: "rgb(147, 51, 234)", color: "white" }}
                         className={`hidden lg:block ${symptom.color} text-gray-800 px-6 py-4 ${bag.length < 5 ? 'cursor-grab active:cursor-grabbing' : 'cursor-not-allowed opacity-50'} shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200`}
                         style={{
                           borderRadius: '4px',
