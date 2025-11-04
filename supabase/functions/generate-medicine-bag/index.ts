@@ -48,13 +48,20 @@ COMPOSITION:
 - Inside the bag: ${medicines.length} colorful medicine boxes stacked naturally
 - Soft studio lighting from top-left creating gentle shadows
 
-MEDICINE BOXES (label each with): ${medicineNames}
+CRITICAL - MEDICINE BOX LABELS:
+Use ONLY these exact names on the medicine boxes: ${medicineNames}
+
+DO NOT USE any other text. DO NOT use descriptive phrases. 
+Use ONLY the branded medicine names provided above (e.g., GENZIUM®, DATANALGINA®, CRIATIDOL®, etc.)
+Each box MUST display ONLY ONE of these branded names prominently on the front.
+
+BOX DESIGN:
 - Each box is a different vibrant color: purple, blue, green, yellow, pink, orange
-- Modern minimalist design with clean typography
-- Each box MUST display "Listra" logo in small text at bottom
-- Box sizes: medium rectangular pharmaceutical packaging style
+- Modern minimalist pharmaceutical design with clean typography
+- Display "Listra" logo in small text at bottom
+- Medium rectangular pharmaceutical packaging style
 - Labels are clearly readable, facing forward
-- IMPORTANT: Display the medicine names EXACTLY as provided (including ® symbol)
+- Large, bold text for the medicine names
 
 STYLE:
 - Photo-realistic 3D render
