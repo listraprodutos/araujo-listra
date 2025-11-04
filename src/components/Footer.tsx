@@ -1,5 +1,5 @@
 import listraLogo from "@/assets/listra-logo-white.png";
-import { Heart } from "lucide-react";
+import { Heart, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -14,6 +14,28 @@ const Footer = () => {
           <div className="text-lg font-medium text-white/80">
             15 anos criando impacto digital. Juntos.
           </div>
+          
+          <div className="flex items-center justify-center gap-6 pt-4">
+            <a 
+              href="https://www.instagram.com/listradigital/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-6 h-6 text-white" />
+            </a>
+            <a 
+              href="https://api.whatsapp.com/send?phone=31990821151" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              aria-label="WhatsApp"
+            >
+              <MessageCircle className="w-6 h-6 text-white" />
+            </a>
+          </div>
+          
           <div className="text-sm text-white/60 pt-6 border-t border-white/10 max-w-xs mx-auto">
             © 2025 Listra Digital. Belo Horizonte - MG
           </div>
