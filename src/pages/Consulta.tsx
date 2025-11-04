@@ -170,6 +170,29 @@ const Consulta = () => {
     setIsGenerating(true);
     toast.loading("Gerando sua imagem personalizada...");
 
+    // Salvar receita no banco PRIMEIRO (antes de tentar gerar imagem)
+    const medicinesText = bag.map(m => m.label).join(', ');
+    let receitaId: string | null = null;
+    
+    try {
+      const { data: receitaData, error: dbError } = await supabase
+        .from('receitas_digitais')
+        .insert({
+          medicines: medicinesText,
+          user_agent: navigator.userAgent
+        })
+        .select('id')
+        .single();
+
+      if (dbError) {
+        console.error('Error saving to database:', dbError);
+      } else {
+        receitaId = receitaData?.id;
+      }
+    } catch (error) {
+      console.error('Error saving receita:', error);
+    }
+
     try {
       // Mapear as frases para nomes de remédios
       const mappedMedicines = bag.map(med => ({
@@ -199,20 +222,16 @@ const Consulta = () => {
       const data = await response.json();
       const imageUrl = data.imageUrl;
       
-      // Salvar receita no banco de dados
-      const medicinesText = bag.map(m => m.label).join(', ');
-      
-      const { error: dbError } = await supabase
-        .from('receitas_digitais')
-        .insert({
-          medicines: medicinesText,
-          image_url: imageUrl,
-          user_agent: navigator.userAgent
-        });
+      // Atualizar receita com a URL da imagem se conseguiu gerar
+      if (receitaId && imageUrl) {
+        const { error: updateError } = await supabase
+          .from('receitas_digitais')
+          .update({ image_url: imageUrl })
+          .eq('id', receitaId);
 
-      if (dbError) {
-        console.error('Error saving to database:', dbError);
-        // Não falha a operação se não conseguir salvar no DB
+        if (updateError) {
+          console.error('Error updating image URL:', updateError);
+        }
       }
 
       setGeneratedImage(imageUrl);

@@ -142,8 +142,10 @@ const Admin = () => {
                       {new Date(receita.created_at).toLocaleString('pt-BR')}
                     </td>
                     <td className="py-3 px-4 text-sm">
-                      <div className="max-w-xs truncate">
-                        {JSON.stringify(receita.medicines)}
+                      <div className="max-w-md whitespace-normal break-words">
+                        {typeof receita.medicines === 'string' 
+                          ? receita.medicines 
+                          : JSON.stringify(receita.medicines)}
                       </div>
                     </td>
                     <td className="py-3 px-4 text-sm">
