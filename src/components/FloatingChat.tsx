@@ -83,7 +83,7 @@ const FloatingChat = () => {
                 <h3 className="font-bold text-lg text-gray-900">
                   Quais os sintomas vocês possuem? Onde dói?
                 </h3>
-                <p className="text-gray-600">Conta pra gente!</p>
+                <p className="text-gray-600">Conta pra gente e receba sua receita!</p>
               </div>
               
               <Button onClick={handleConsultaClick} className="w-full bg-listra-footer hover:bg-listra-footer/90 text-white" size="lg">
