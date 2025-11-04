@@ -16,7 +16,7 @@ const FloatingChat = () => {
     <>
       {/* Floating Button */}
       <motion.div
-        className="fixed bottom-8 right-8 z-50"
+        className="fixed bottom-8 right-8 z-50 flex flex-col items-center gap-2"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
@@ -50,6 +50,9 @@ const FloatingChat = () => {
             )}
           </AnimatePresence>
         </Button>
+        <span className="text-xs font-medium text-gray-600 bg-white px-2 py-1 rounded-full shadow-md">
+          Consulta online
+        </span>
       </motion.div>
 
       {/* Chat Bubble */}
