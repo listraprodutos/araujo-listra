@@ -220,14 +220,14 @@ const Consulta = () => {
                     {symptoms.map((symptom, index) => (
                       <motion.div
                         key={symptom.id}
-                        drag
+                        drag={bag.length < 5}
                         dragConstraints={dragConstraintsRef}
                         dragElastic={0.1}
                         onDragEnd={(e, info) => handleDragEnd(symptom, info)}
                         whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
                         initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
                         whileHover={{ rotate: 0, scale: 1.05 }}
-                        className={`${symptom.color} text-gray-800 px-6 py-4 cursor-grab active:cursor-grabbing shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200`}
+                        className={`${symptom.color} text-gray-800 px-6 py-4 ${bag.length < 5 ? 'cursor-grab active:cursor-grabbing' : 'cursor-not-allowed opacity-50'} shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200`}
                         style={{
                           borderRadius: '4px',
                           clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
@@ -408,12 +408,6 @@ const Consulta = () => {
 
       <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
         <DialogContent className="max-w-2xl">
-          <button
-            onClick={() => setShowSuccessDialog(false)}
-            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
           <div className="pt-6 space-y-4">
             <h2 className="text-2xl font-bold">Sua receita digital chegou na Listra.</h2>
             <p className="flex items-start gap-2">
