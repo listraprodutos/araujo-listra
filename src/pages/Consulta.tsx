@@ -322,83 +322,79 @@ const Consulta = () => {
               </Card>
             </motion.div>
 
-            {/* Right side - Bag */}
+            {/* Right side - Notebook Paper */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
               className="relative lg:order-2 order-1"
             >
-              {/* Bag SVG Background */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                <svg
-                  viewBox="0 0 300 450"
-                  className="w-full h-full opacity-40"
-                  style={{ maxHeight: '700px' }}
-                >
-                  <path
-                    d="M 40 100 Q 40 80 60 80 L 90 80 Q 90 40 130 40 L 170 40 Q 170 80 210 80 L 240 80 Q 260 80 260 100 L 260 400 Q 260 430 230 430 L 70 430 Q 40 430 40 400 Z"
-                    fill="currentColor"
-                    className="text-primary/50"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M 90 80 Q 105 55 130 55 L 170 55 Q 195 55 210 80"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    className="text-primary/50"
-                  />
-                </svg>
-              </div>
-
               <Card 
                 id="drop-zone"
-                className="h-full border-0 bg-transparent relative z-10 min-h-[45vh] lg:min-h-0"
+                className="h-full border-2 border-gray-300 relative z-10 min-h-[45vh] lg:min-h-0 shadow-xl"
+                style={{
+                  background: `
+                    linear-gradient(to right, 
+                      #fef9f3 0px, 
+                      #fef9f3 40px, 
+                      #ffcccb 40px, 
+                      #ffcccb 42px, 
+                      #fef9f3 42px, 
+                      #fef9f3 100%
+                    ),
+                    repeating-linear-gradient(
+                      to bottom,
+                      transparent 0px,
+                      transparent 31px,
+                      #e8e5dd 31px,
+                      #e8e5dd 32px
+                    )
+                  `,
+                  backgroundSize: '100% 100%, 100% 32px',
+                  backgroundPosition: '0 0, 0 8px',
+                }}
               >
-                <CardContent className="p-6 lg:p-8 h-full flex flex-col">
-                  <div className="mb-4 lg:mb-6 text-center lg:-mt-[30px]">
-                    <h2 className="text-xl lg:text-2xl font-bold mb-2 flex items-center justify-center gap-2">
-                      <ShoppingBag className="w-5 h-5 lg:w-6 lg:h-6 text-primary" />
+                <CardContent className="p-6 lg:p-8 h-full flex flex-col" style={{ paddingLeft: '60px' }}>
+                  <div className="mb-4 lg:mb-6 text-center">
+                    <h2 className="text-xl lg:text-2xl font-bold mb-2" style={{ fontFamily: "'Caveat', cursive" }}>
                       Sua Receita
                     </h2>
-                    <p className="text-sm text-muted-foreground">
-                      {bag.length}/5 papéis selecionados
+                    <p className="text-sm" style={{ fontFamily: "'Caveat', cursive", color: '#666' }}>
+                      {bag.length}/5 necessidades selecionadas
                     </p>
                   </div>
 
-                  <div className="flex-1 mb-4 lg:mb-6 overflow-y-auto min-h-[200px] lg:min-h-[400px] relative flex flex-col items-center pt-6 lg:pt-12">
+                  <div className="flex-1 mb-4 lg:mb-6 overflow-y-auto min-h-[200px] lg:min-h-[400px] relative flex flex-col pt-6 lg:pt-12">
                     {bag.length === 0 ? (
-                      <div className="h-full flex items-center justify-center text-center text-muted-foreground">
+                      <div className="h-full flex items-center justify-center text-center" style={{ color: '#999' }}>
                         <div>
-                          <ShoppingBag className="w-16 h-16 mx-auto mb-4 opacity-20" />
-                          <p>Arraste os papéis aqui</p>
+                          <p style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2rem' }}>Arraste as necessidades aqui</p>
                         </div>
                       </div>
                     ) : (
-                      <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-3 w-full max-w-[280px]">
+                      <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-4 w-full">
                         {bag.map((medicine, index) => (
                           <Reorder.Item key={medicine.id} value={medicine}>
                             <motion.div
                               layout
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              exit={{ opacity: 0, scale: 0.8 }}
-                              className="bg-transparent text-gray-800 p-3 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow relative group border border-white/30"
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              className="bg-transparent p-2 cursor-move relative group"
                               style={{
-                                borderRadius: '4px',
-                                clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
                                 fontFamily: "'Caveat', cursive",
+                                fontSize: '1.5rem',
+                                color: '#2c3e50',
+                                paddingLeft: '8px',
                               }}
                             >
                               <button
                                 onClick={() => removeFromBag(medicine.id)}
-                                className="absolute top-1 right-1 text-gray-600 hover:text-gray-900 z-10"
+                                className="absolute -left-6 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 z-10 opacity-70 hover:opacity-100"
                               >
-                                <X className="w-4 h-4" />
+                                <X className="w-5 h-5" />
                               </button>
-                              <p className="font-bold text-center text-lg pr-6">{medicine.label}</p>
+                              <p className="font-bold">• {medicine.label}</p>
                             </motion.div>
                           </Reorder.Item>
                         ))}
