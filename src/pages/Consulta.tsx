@@ -300,6 +300,16 @@ const Consulta = () => {
                 className="h-full border-0 bg-transparent relative z-10"
               >
                 <CardContent className="p-8 h-full flex flex-col">
+                  <div className="mb-6 text-center">
+                    <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                      <ShoppingBag className="w-6 h-6 text-primary" />
+                      Sua Receita
+                    </h2>
+                    <p className="text-sm text-muted-foreground">
+                      {bag.length}/5 papéis selecionados
+                    </p>
+                  </div>
+
                   <div className="flex-1 mb-6 overflow-y-auto min-h-[400px] relative flex flex-col items-center pt-12">
                     {bag.length === 0 ? (
                       <div className="h-full flex items-center justify-center text-center text-muted-foreground">
