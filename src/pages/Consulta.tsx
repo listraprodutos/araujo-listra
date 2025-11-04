@@ -310,7 +310,7 @@ const Consulta = () => {
                     </p>
                   </div>
 
-                  <div className="flex-1 mb-6 overflow-y-auto min-h-[400px] relative">
+                  <div className="flex-1 mb-6 overflow-y-auto min-h-[400px] relative flex flex-col items-center pt-12">
                     {bag.length === 0 ? (
                       <div className="h-full flex items-center justify-center text-center text-muted-foreground">
                         <div>
@@ -319,7 +319,7 @@ const Consulta = () => {
                         </div>
                       </div>
                     ) : (
-                      <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-3">
+                      <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-3 w-full max-w-[280px]">
                         {bag.map((medicine, index) => (
                           <Reorder.Item key={medicine.id} value={medicine}>
                             <motion.div
@@ -332,14 +332,13 @@ const Consulta = () => {
                                 borderRadius: '4px',
                                 clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
                                 fontFamily: "'Caveat', cursive",
-                                maxWidth: '250px',
                               }}
                             >
                               <button
                                 onClick={() => removeFromBag(medicine.id)}
-                                className="absolute top-1 right-1 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600 z-10"
+                                className="absolute top-1 right-1 text-gray-600 hover:text-gray-900 z-10"
                               >
-                                <X className="w-3 h-3" />
+                                <X className="w-4 h-4" />
                               </button>
                               <p className="font-bold text-center text-lg pr-6">{medicine.label}</p>
                             </motion.div>
