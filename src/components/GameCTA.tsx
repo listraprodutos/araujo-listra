@@ -60,7 +60,7 @@ const GameCTA = () => {
                   className="text-lg px-12 py-7 h-auto bg-white hover:bg-white/90 text-primary shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl group"
                 >
                   <Stethoscope className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                  Clique para consultar e gere sua receita!
+                  Clique aqui para consultar e gerar sua receita!
                 </Button>
               </motion.div>
             </div>
