@@ -7,6 +7,7 @@ import Partnerships from "@/components/Partnerships";
 import BHForMinas from "@/components/BHForMinas";
 import GameCTA from "@/components/GameCTA";
 import Footer from "@/components/Footer";
+import FloatingChat from "@/components/FloatingChat";
 const Index = () => {
   return <div className="min-h-screen">
       <Hero />
@@ -18,6 +19,7 @@ const Index = () => {
       <BHForMinas />
       <GameCTA />
       <Footer />
+      <FloatingChat />
     </div>;
 };
 export default Index;
