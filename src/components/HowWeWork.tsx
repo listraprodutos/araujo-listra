@@ -100,17 +100,22 @@ const HowWeWork = () => {
             </svg>
 
             {/* Center - Evolução Contínua */}
-            <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" initial={{
-            scale: 0,
-            rotate: -180
-          }} animate={isInView ? {
-            scale: 1,
-            rotate: 0
-          } : {}} transition={{
-            duration: 0.8,
-            delay: 0.8,
-            type: "spring"
-          }}>
+            <motion.div 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20" 
+              style={{ marginLeft: '-70px', marginTop: '-100px' }}
+              initial={{
+                scale: 0,
+                rotate: -180
+              }} 
+              animate={isInView ? {
+                scale: 1,
+                rotate: 0
+              } : {}} 
+              transition={{
+                duration: 0.8,
+                delay: 0.8,
+                type: "spring"
+              }}>
               <div className="w-40 h-40 rounded-full bg-gradient-to-br from-listra-footer to-listra-footer/80 flex items-center justify-center shadow-2xl relative">
                 <motion.div animate={{
                 scale: [1, 1.2, 1],
