@@ -204,7 +204,6 @@ const Consulta = () => {
             <div className="space-y-2 text-lg text-muted-foreground">
               <p className="font-semibold">Todo mineiro já sabe que na Araujo tem tudo.</p>
               <p>Agora é a nossa vez de perguntar: o que falta para vocês?</p>
-              <p className="font-medium">Selecione ou escreva até 5 palavras.</p>
             </div>
           </motion.div>
 
