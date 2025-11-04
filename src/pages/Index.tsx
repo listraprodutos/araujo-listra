@@ -17,8 +17,8 @@ const Index = () => {
       
       <Partnerships />
       <BHForMinas />
-      <Contact />
       <GameCTA />
+      <Contact />
       <Footer />
     </div>;
 };
