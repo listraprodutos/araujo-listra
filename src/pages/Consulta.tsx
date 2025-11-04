@@ -300,7 +300,7 @@ const Consulta = () => {
                 className="h-full border-0 bg-transparent relative z-10"
               >
                 <CardContent className="p-8 h-full flex flex-col">
-                  <div className="mb-6 text-center">
+                  <div className="mb-6 text-center -mt-[30px]">
                     <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
                       <ShoppingBag className="w-6 h-6 text-primary" />
                       Sua Receita
