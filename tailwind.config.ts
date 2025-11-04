@@ -56,6 +56,7 @@ export default {
           purple: "hsl(var(--listra-purple))",
           cyan: "hsl(var(--listra-cyan))",
           dark: "hsl(var(--listra-dark))",
+          footer: "hsl(var(--listra-footer))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
