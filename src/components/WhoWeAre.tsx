@@ -82,17 +82,17 @@ const WhoWeAre = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <Card className="h-full bg-white border-2 border-border hover:border-primary/50 rounded-3xl hover:shadow-xl transition-all duration-300 group">
+                <Card className="h-full bg-white border-2 border-listra-footer/40 hover:border-listra-footer rounded-3xl hover:shadow-xl transition-all duration-300 group">
                   <CardContent className="p-8 lg:p-10">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                      <Icon className="w-8 h-8 text-primary" strokeWidth={2} />
+                    <div className="w-16 h-16 rounded-2xl bg-listra-footer/10 flex items-center justify-center mb-6 group-hover:bg-listra-footer/20 transition-colors duration-300">
+                      <Icon className="w-8 h-8 text-listra-footer" strokeWidth={2} />
                     </div>
                     
                     <h3 className="text-xl font-bold mb-3 text-foreground leading-tight">
                       {service.title}
                     </h3>
                     
-                    <p className="text-base text-primary font-semibold mb-4">
+                    <p className="text-base text-listra-footer font-semibold mb-4">
                       {service.subtitle}
                     </p>
                     
@@ -119,17 +119,17 @@ const WhoWeAre = () => {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                 >
-                  <Card className="h-full bg-white border-2 border-border rounded-3xl shadow-lg">
+                  <Card className="h-full bg-white border-2 border-listra-footer/40 rounded-3xl shadow-lg">
                     <CardContent className="p-6">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                        <Icon className="w-7 h-7 text-primary" strokeWidth={2} />
+                      <div className="w-14 h-14 rounded-2xl bg-listra-footer/10 flex items-center justify-center mb-4">
+                        <Icon className="w-7 h-7 text-listra-footer" strokeWidth={2} />
                       </div>
                       
                       <h3 className="text-lg font-bold mb-2 text-foreground leading-tight">
                         {service.title}
                       </h3>
                       
-                      <p className="text-sm text-primary font-semibold mb-3">
+                      <p className="text-sm text-listra-footer font-semibold mb-3">
                         {service.subtitle}
                       </p>
                       
