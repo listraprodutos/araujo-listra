@@ -67,7 +67,7 @@ const WhoWeAre = () => {
             </motion.div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Somos uma empresa de Belo Horizonte que há 15 anos conecta TI e Growth Marketing para impulsionar negócios. Acreditamos em inovação com propósito.
+            Há 15 anos, nascemos em Belo Horizonte com o propósito de unir TI e Growth Marketing para impulsionar negócios. Acreditamos que estratégia só faz sentido quando gera impacto real.
           </p>
         </motion.div>
 
