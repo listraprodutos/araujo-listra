@@ -99,8 +99,7 @@ const AraujoTimeline = () => {
             E o próximo capítulo?
           </h3>
           <p className="text-xl sm:text-2xl lg:text-3xl text-foreground leading-relaxed">
-            120 anos de história merecem um parceiro<br />
-            que pense os próximos 120 juntos.
+            120 anos de história merecem um<br className="hidden sm:block" /> parceiro que pense os próximos 120 juntos.
           </p>
         </motion.div>
 

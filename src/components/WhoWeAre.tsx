@@ -39,11 +39,11 @@ const WhoWeAre = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center justify-center gap-6 mb-8">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-8">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center md:text-left">
               <span className="text-foreground">MINEIROS COMO VOCÊS</span>
             </h2>
-            <div className="relative w-20 h-20 flex-shrink-0">
+            <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 md:mt-4">
               <img 
                 src={seloIcon} 
                 alt="Selo" 
