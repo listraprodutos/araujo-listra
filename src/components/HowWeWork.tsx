@@ -73,7 +73,7 @@ const HowWeWork = () => {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Não somos fornecedores.
             <br />
-            <span className="text-primary">Somos parceiros estratégicos.</span>
+            <span className="text-listra-footer">Somos parceiros estratégicos.</span>
           </h2>
         </motion.div>
 
@@ -92,9 +92,9 @@ const HowWeWork = () => {
             }} />
               <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-                  <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="1" />
-                  <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+                  <stop offset="0%" stopColor="hsl(var(--listra-footer))" stopOpacity="0.3" />
+                  <stop offset="50%" stopColor="hsl(var(--listra-footer))" stopOpacity="1" />
+                  <stop offset="100%" stopColor="hsl(var(--listra-footer))" stopOpacity="0.3" />
                 </linearGradient>
               </defs>
             </svg>
@@ -111,7 +111,7 @@ const HowWeWork = () => {
             delay: 0.8,
             type: "spring"
           }}>
-              <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl relative">
+              <div className="w-40 h-40 rounded-full bg-gradient-to-br from-listra-footer to-listra-footer/80 flex items-center justify-center shadow-2xl relative">
                 <motion.div animate={{
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 0, 0.5]
@@ -119,7 +119,7 @@ const HowWeWork = () => {
                 duration: 2,
                 repeat: Infinity,
                 ease: "easeInOut"
-              }} className="absolute inset-0 rounded-full bg-primary/20" />
+              }} className="absolute inset-0 rounded-full bg-listra-footer/20" />
                 <div className="text-white text-center font-bold relative z-10 flex flex-col items-center">
                   <motion.div animate={{
                   rotate: 360
@@ -157,14 +157,14 @@ const HowWeWork = () => {
               delay: 1 + index * 0.15,
               type: "spring"
             }}>
-                  <motion.div className={`w-60 bg-white rounded-2xl p-6 shadow-lg border-2 transition-all duration-500 ${isActive ? "border-primary scale-110" : "border-transparent"}`} animate={isActive ? {
+                  <motion.div className={`w-60 bg-white rounded-2xl p-6 shadow-lg border-2 transition-all duration-500 ${isActive ? "border-listra-footer scale-110" : "border-transparent"}`} animate={isActive ? {
                 boxShadow: ["0 10px 30px rgba(125, 40, 247, 0.2)", "0 20px 40px rgba(125, 40, 247, 0.4)", "0 10px 30px rgba(125, 40, 247, 0.2)"]
               } : {}} transition={{
                 duration: 1.5,
                 repeat: Infinity
               }}>
                     <div className="flex items-start gap-4">
-                      <motion.div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-xl" animate={isActive ? {
+                      <motion.div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-listra-footer to-listra-footer/80 flex items-center justify-center text-white font-bold text-xl" animate={isActive ? {
                     rotate: 360
                   } : {}} transition={{
                     duration: 0.8
@@ -172,7 +172,7 @@ const HowWeWork = () => {
                         {step.number}
                       </motion.div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold mb-2 text-primary">{step.title}</h3>
+                        <h3 className="text-lg font-bold mb-2 text-listra-footer">{step.title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           {step.description}
                         </p>
@@ -190,7 +190,7 @@ const HowWeWork = () => {
           } : {}} transition={{
             delay: 2
           }}>
-              {process.map((_, index) => <div key={index} className={`w-2 h-2 rounded-full transition-all duration-300 ${activeStep === index ? "bg-primary w-8" : "bg-primary/30"}`} />)}
+              {process.map((_, index) => <div key={index} className={`w-2 h-2 rounded-full transition-all duration-300 ${activeStep === index ? "bg-listra-footer w-8" : "bg-listra-footer/30"}`} />)}
             </motion.div>
           </div>
 
@@ -216,19 +216,19 @@ const HowWeWork = () => {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
               >
-                <Card className="h-full bg-white border-2 border-primary/30 rounded-2xl shadow-lg">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-xl">
-                        {step.number}
+                  <Card className="h-full bg-white border-2 border-listra-footer/30 rounded-2xl shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-listra-footer to-listra-footer/80 flex items-center justify-center text-white font-bold text-xl">
+                          {step.number}
+                        </div>
+                        <h3 className="text-xl font-bold text-listra-footer pt-3">{step.title}</h3>
                       </div>
-                      <h3 className="text-xl font-bold text-primary pt-3">{step.title}</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                    </CardContent>
+                  </Card>
               </motion.div>
             ))}
           </div>
