@@ -24,12 +24,15 @@ interface Medicine {
 }
 
 const initialSymptoms = [
-  { id: "criatividade", label: "Criatividade", color: "bg-white" },
-  { id: "integracao", label: "Integração de Dados", color: "bg-white" },
-  { id: "automacao", label: "Automação", color: "bg-white" },
-  { id: "estrategia", label: "Estratégia Digital", color: "bg-white" },
-  { id: "ia", label: "Inteligência Artificial", color: "bg-white" },
-  { id: "cloud", label: "Cloud Computing", color: "bg-white" },
+  { id: "engajamento", label: "Dificuldade em engajar novas gerações", color: "bg-white" },
+  { id: "dados", label: "Baixo aproveitamento dos dados", color: "bg-white" },
+  { id: "criatividade", label: "Precisamos de ideias mais criativas", color: "bg-white" },
+  { id: "integracao", label: "Muito canal, pouca integração", color: "bg-white" },
+  { id: "jornada", label: "Jornada do cliente mal mapeada", color: "bg-white" },
+  { id: "automacao", label: "Falta automação em pontos-chave", color: "bg-white" },
+  { id: "experiencia", label: "A experiência ainda não encanta", color: "bg-white" },
+  { id: "relevancia", label: "Estamos perdendo relevância digital", color: "bg-white" },
+  { id: "conexao", label: "Conexão com o cliente está distante", color: "bg-white" },
 ];
 
 const Consulta = () => {
@@ -370,7 +373,7 @@ const Consulta = () => {
                       Nome: Araújo
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {bag.length}/5 necessidades selecionadas
+                      {bag.length}/5 necessidades selecionadas {bag.length > 0 && "(clique na palavra para excluir)"}
                     </p>
                   </div>
 
@@ -382,11 +385,7 @@ const Consulta = () => {
                         </div>
                       </div>
                     ) : (
-                      <>
-                        <p className="text-xs text-muted-foreground mb-3 italic">
-                          * Clique na palavra para excluir
-                        </p>
-                        <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-4 w-full">
+                      <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-4 w-full">
                           {bag.map((medicine, index) => (
                             <Reorder.Item key={medicine.id} value={medicine}>
                               <motion.div
@@ -408,7 +407,6 @@ const Consulta = () => {
                             </Reorder.Item>
                           ))}
                         </Reorder.Group>
-                      </>
                     )}
                   </div>
 
