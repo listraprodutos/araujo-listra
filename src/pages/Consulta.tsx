@@ -400,9 +400,9 @@ const Consulta = () => {
                             >
                               <button
                                 onClick={() => removeFromBag(medicine.id)}
-                                className="absolute -left-6 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 z-10 opacity-70 hover:opacity-100"
+                                className="absolute -left-10 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 z-10 opacity-70 hover:opacity-100 bg-white/80 rounded-full p-1"
                               >
-                                <X className="w-5 h-5" />
+                                <X className="w-4 h-4" />
                               </button>
                               <p className="font-bold">• {medicine.label}</p>
                             </motion.div>
