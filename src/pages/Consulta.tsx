@@ -38,6 +38,7 @@ const Consulta = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [showImageDialog, setShowImageDialog] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const [fallingItems, setFallingItems] = useState<string[]>([]);
   const dragConstraintsRef = useRef(null);
 
@@ -157,28 +158,7 @@ const Consulta = () => {
       if (error) throw error;
 
       setShowImageDialog(false);
-      
-      // Show success message
-      toast.success(
-        <div className="text-left">
-          <p className="font-bold mb-2">Sua receita digital chegou na Listra.</p>
-          <p className="text-sm mb-2">🧪 Status: Aguardando aprovação para iniciar tratamento</p>
-          <p className="text-sm mb-2">Nossa equipe está pronta para preparar a dose certa de:</p>
-          <ul className="text-sm list-disc list-inside mb-2">
-            <li>Estratégia</li>
-            <li>Tecnologia</li>
-            <li>Criatividade</li>
-            <li>Resultado</li>
-            <li>Vontade de fazer acontecer</li>
-          </ul>
-          <p className="text-sm mb-2">Tempo estimado para retorno: Assim que vocês quiserem conversar!</p>
-          <p className="text-sm mb-2">💬 Ou se preferir, chama a gente no WhatsApp: [31] 99082 1151</p>
-          <p className="text-sm font-bold">💜 Listra Digital - 15 anos criando impacto digital. Juntos.</p>
-        </div>,
-        { duration: 10000 }
-      );
-
-      setTimeout(() => navigate("/"), 3000);
+      setShowSuccessDialog(true);
     } catch (error) {
       console.error("Error saving recipe:", error);
       toast.error("Erro ao salvar receita. Tente novamente.");
@@ -254,7 +234,7 @@ const Consulta = () => {
                           fontFamily: "'Caveat', cursive",
                         }}
                       >
-                        <p className="font-bold text-center text-xl">{symptom.label}</p>
+                        <p className="font-bold text-center text-2xl">{symptom.label}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -347,20 +327,21 @@ const Consulta = () => {
                               initial={{ opacity: 0, scale: 0.8 }}
                               animate={{ opacity: 1, scale: 1 }}
                               exit={{ opacity: 0, scale: 0.8 }}
-                              className={`${medicine.color} text-gray-800 p-5 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow relative group border border-gray-200`}
+                              className={`${medicine.color} text-gray-800 p-3 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow relative group border border-gray-200`}
                               style={{
                                 borderRadius: '4px',
                                 clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
                                 fontFamily: "'Caveat', cursive",
+                                maxWidth: '250px',
                               }}
                             >
                               <button
                                 onClick={() => removeFromBag(medicine.id)}
-                                className="absolute top-2 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600 z-10"
+                                className="absolute top-1 right-1 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-xs hover:bg-red-600 z-10"
                               >
-                                <X className="w-4 h-4" />
+                                <X className="w-3 h-3" />
                               </button>
-                              <p className="font-bold text-center text-xl pr-8">{medicine.label}</p>
+                              <p className="font-bold text-center text-lg pr-6">{medicine.label}</p>
                             </motion.div>
                           </Reorder.Item>
                         ))}
@@ -422,6 +403,44 @@ const Consulta = () => {
             >
               Confirmar e Enviar
             </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+        <DialogContent className="max-w-2xl">
+          <button
+            onClick={() => setShowSuccessDialog(false)}
+            className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div className="pt-6 space-y-4">
+            <h2 className="text-2xl font-bold">Sua receita digital chegou na Listra.</h2>
+            <p className="flex items-start gap-2">
+              <span>✅</span>
+              <span><strong>Status:</strong> Aguardando aprovação para iniciar tratamento</span>
+            </p>
+            <div>
+              <p className="mb-2">Nossa equipe está pronta para preparar a dose certa de:</p>
+              <ul className="list-disc list-inside space-y-1 ml-4">
+                <li>Estratégia</li>
+                <li>Tecnologia</li>
+                <li>Criatividade</li>
+                <li>Resultado</li>
+                <li>Vontade de fazer acontecer</li>
+              </ul>
+            </div>
+            <p>
+              <strong>Tempo estimado para retorno:</strong> Assim que vocês quiserem conversar!
+            </p>
+            <p className="flex items-start gap-2">
+              <span>💬</span>
+              <span>Ou se preferir, chama a gente no WhatsApp: <strong>[31] 99082 1151</strong></span>
+            </p>
+            <p className="text-primary font-bold pt-4">
+              💜 Listra Digital - 15 anos criando impacto digital. Juntos.
+            </p>
           </div>
         </DialogContent>
       </Dialog>
