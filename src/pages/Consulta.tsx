@@ -436,8 +436,7 @@ const Consulta = () => {
                   </p>
                   
                   <p>
-                    Porque 120 anos de história não merecem só uma receita.
-                    Merecem um parceiro que pense nos próximos 120, junto com vocês.
+                    E é aí que a Listra entra: não com fórmulas prontas, mas com parceria, investigação e estratégia contínua.
                   </p>
                   
                   <p>
