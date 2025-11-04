@@ -142,7 +142,7 @@ const Consulta = () => {
     "RELACIONEX®": "Reforça a conexão emocional com o cliente, com comunicação mais próxima, empática e constante.",
     "OMNILINK®": "Integra canais físicos e digitais, garantindo uma jornada fluida e consistente para o consumidor.",
     "MAPPEX®": "Mapeia e estrutura a jornada do cliente, identificando pontos de atrito e oportunidades de encantamento.",
-    "IMPACTIL®": "Dá força ao conteúdo com mais impacto, criatividade e performance — sem perder o propósito.",
+    "IMPACTIL®": "Dá força ao conteúdo com mais impacto, criatividade e performance, sem perder o propósito.",
     "AUTOMAX®": "Automatiza processos-chave para ganhar eficiência, escala e previsibilidade.",
     "ENCANTOL®": "Melhora a experiência do usuário com foco em usabilidade, emoção e fidelização.",
     "RELEVAX®": "Fortalece a presença digital contínua da marca, garantindo relevância, atualização e consistência."
