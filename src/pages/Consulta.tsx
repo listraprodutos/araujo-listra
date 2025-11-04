@@ -171,7 +171,7 @@ const Consulta = () => {
       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
       
       {/* Header Menu */}
-      <header className="bg-primary py-4 px-6 shadow-md">
+      <header className="bg-listra-footer py-4 px-6 shadow-md">
         <div className="container mx-auto flex items-center justify-center relative">
           <Button
             variant="ghost"
