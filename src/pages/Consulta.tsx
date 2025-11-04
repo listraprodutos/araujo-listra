@@ -108,16 +108,29 @@ const Consulta = () => {
     }
   };
 
-  const downloadImage = () => {
+  const downloadImage = async () => {
     if (!generatedImage) return;
     
-    const link = document.createElement('a');
-    link.href = generatedImage;
-    link.download = 'receita-digital-araujo.png';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    toast.success("Imagem salva com sucesso!");
+    try {
+      // Fetch the image as blob
+      const response = await fetch(generatedImage);
+      const blob = await response.blob();
+      
+      // Create download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'receita-digital-araujo.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+      toast.success("Imagem salva com sucesso!");
+    } catch (error) {
+      console.error('Error downloading image:', error);
+      toast.error("Erro ao baixar imagem");
+    }
   };
 
   // Mapeamento de frases originais para nomes de remédios
@@ -161,9 +174,10 @@ const Consulta = () => {
       // Mapear as frases para nomes de remédios
       const mappedMedicines = bag.map(med => ({
         ...med,
-        medicineName: medicineMappings[med.label] || med.label // Usa o nome mapeado ou o texto original
+        medicineName: medicineMappings[med.label] || med.label
       }));
 
+      // Gerar a imagem
       const response = await fetch(
         `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-medicine-bag`,
         {
@@ -183,7 +197,25 @@ const Consulta = () => {
       }
 
       const data = await response.json();
-      setGeneratedImage(data.imageUrl);
+      const imageUrl = data.imageUrl;
+      
+      // Salvar receita no banco de dados
+      const medicinesText = bag.map(m => m.label).join(', ');
+      
+      const { error: dbError } = await supabase
+        .from('receitas_digitais')
+        .insert({
+          medicines: medicinesText,
+          image_url: imageUrl,
+          user_agent: navigator.userAgent
+        });
+
+      if (dbError) {
+        console.error('Error saving to database:', dbError);
+        // Não falha a operação se não conseguir salvar no DB
+      }
+
+      setGeneratedImage(imageUrl);
       setShowImageDialog(true);
       toast.success("Imagem gerada com sucesso!");
     } catch (error) {
