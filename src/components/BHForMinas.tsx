@@ -94,26 +94,6 @@ const BHForMinas = () => {
                 <br />
                 Vamos juntos?
               </p>
-
-              <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-4 max-w-xs mx-auto" />
-
-              <motion.div className="bg-gradient-to-br from-primary/10 via-transparent to-araujo-blue/10 rounded-3xl p-10 border-2 border-primary/20" initial={{
-              opacity: 0,
-              scale: 0.9
-            }} animate={isInView ? {
-              opacity: 1,
-              scale: 1
-            } : {}} transition={{
-              duration: 0.6,
-              delay: 0.9
-            }}>
-                <div className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-araujo-blue bg-clip-text text-transparent">
-                  LISTRA
-                </div>
-                <div className="text-xl text-muted-foreground font-medium">
-                  15 anos criando impacto digital. Juntos.
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>

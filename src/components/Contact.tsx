@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, MessageCircle, Send } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -13,26 +12,6 @@ const Contact = () => {
   return <section ref={ref} className="py-32 bg-gradient-to-b from-background to-araujo-blue-soft">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          
-
-          <motion.div className="mb-16" initial={{
-          opacity: 0,
-          y: 30
-        }} animate={isInView ? {
-          opacity: 1,
-          y: 0
-        } : {}} transition={{
-          duration: 0.6,
-          delay: 0.3
-        }}>
-            <Button asChild size="lg" className="w-full sm:w-auto mx-auto flex items-center gap-3 text-lg px-12 py-7 h-auto bg-araujo-blue hover:bg-araujo-blue/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl group">
-              <a href="mailto:paixaopelaaraujo@araujo.com.br">
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                JÁ MANIFESTAMOS NOSSO INTERESSE
-              </a>
-            </Button>
-          </motion.div>
-
           <motion.div initial={{
           opacity: 0,
           y: 30
