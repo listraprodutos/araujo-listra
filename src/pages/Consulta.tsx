@@ -263,8 +263,7 @@ const Consulta = () => {
                       Necessidades Disponíveis
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                      <span className="hidden lg:inline">Arraste</span>
-                      <span className="lg:hidden">Toque</span> até 5 remédios para sua receita
+                      Clique no botão <Plus className="w-3 h-3 inline-block" /> para adicionar até 5 necessidades à sua receita
                     </p>
                   </div>
 
@@ -272,14 +271,9 @@ const Consulta = () => {
                     {symptoms.map((symptom, index) => (
                       <motion.div
                         key={symptom.id}
-                        drag={bag.length < 5 ? "y" : false}
-                        dragConstraints={dragConstraintsRef}
-                        dragElastic={0.1}
-                        onDragEnd={(e, info) => handleDragEnd(symptom, info)}
-                        whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
                         initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
                         whileHover={{ rotate: 0, scale: 1.05 }}
-                        className={`hidden lg:block ${symptom.color} text-gray-800 px-6 py-4 ${bag.length < 5 ? 'cursor-grab active:cursor-grabbing' : 'cursor-not-allowed opacity-50'} shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200`}
+                        className={`hidden lg:block ${symptom.color} text-gray-800 px-6 py-4 shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200 relative ${bag.length >= 5 ? 'opacity-50' : ''}`}
                         style={{
                           borderRadius: '4px',
                           clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
@@ -287,6 +281,17 @@ const Consulta = () => {
                         }}
                       >
                         <p className="font-bold text-center text-2xl">{symptom.label}</p>
+                        
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleTapToAdd(symptom);
+                          }}
+                          disabled={bag.length >= 5}
+                          className="absolute top-2 right-2 w-10 h-10 rounded-full bg-listra-footer text-white flex items-center justify-center opacity-90 hover:opacity-100 active:scale-95 transition-all disabled:opacity-30"
+                        >
+                          <Plus className="w-6 h-6" />
+                        </button>
                       </motion.div>
                     ))}
                     
@@ -399,7 +404,7 @@ const Consulta = () => {
                     {bag.length === 0 ? (
                       <div className="h-full flex items-center justify-center text-center" style={{ color: '#999' }}>
                         <div>
-                          <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: '1.2rem' }}>Arraste as necessidades aqui</p>
+                          <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: '1.2rem' }}>Clique no botão + para adicionar necessidades</p>
                         </div>
                       </div>
                     ) : (
