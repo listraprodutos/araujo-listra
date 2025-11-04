@@ -61,13 +61,6 @@ const Footer = () => {
           <Heart className="w-4 h-4 text-white fill-white" />
           <span>para Araújo</span>
         </div>
-        
-        <a 
-          href="/admin" 
-          className="absolute bottom-6 left-6 text-xs text-white/40 hover:text-white/60 transition-colors"
-        >
-          Admin
-        </a>
       </div>
     </footer>
   );
