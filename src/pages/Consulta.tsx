@@ -440,7 +440,7 @@ const Consulta = () => {
                   </p>
                   
                   <p>
-                    Se algum sintoma não apareceu aqui, tudo bem — a gente adora mergulhar fundo, descobrir junto e construir soluções sob medida.
+                    Se algum sintoma não apareceu aqui, tudo bem, a gente adora mergulhar fundo, descobrir junto e construir soluções sob medida.
                   </p>
                   
                   <p className="font-semibold">Vamos conversar?</p>
