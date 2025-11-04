@@ -3,7 +3,7 @@ import { Heart, Instagram, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="py-16 bg-[#8b39ef] text-white/90 relative">
+    <footer className="py-16 bg-primary text-white/90 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-6">
           <img 

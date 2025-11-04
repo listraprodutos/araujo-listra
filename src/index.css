@@ -33,13 +33,13 @@ All colors MUST be HSL.
     --araujo-red: 358 82% 52%;
     
     /* Listra Brand Colors */
-    --listra-purple: 267 85% 58%;
-    --listra-purple-light: 267 85% 70%;
+    --listra-purple: 223 77% 42%;
+    --listra-purple-light: 223 77% 55%;
     --listra-cyan: 171 100% 48%;
     --listra-dark: 217 33% 12%;
     
-    /* Primary uses Listra Purple */
-    --primary: 267 85% 58%;
+    /* Primary uses new blue color */
+    --primary: 223 77% 42%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217 33% 17%;
@@ -48,7 +48,7 @@ All colors MUST be HSL.
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 267 85% 58%;
+    --accent: 223 77% 42%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -56,18 +56,18 @@ All colors MUST be HSL.
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 267 85% 58%;
+    --ring: 223 77% 42%;
 
     --radius: 1rem;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(217 100% 37%) 0%, hsl(267 85% 58%) 100%);
-    --gradient-purple: linear-gradient(135deg, hsl(267 85% 58%) 0%, hsl(267 85% 70%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(217 100% 37%) 0%, hsl(223 77% 42%) 100%);
+    --gradient-purple: linear-gradient(135deg, hsl(223 77% 42%) 0%, hsl(223 77% 55%) 100%);
     --gradient-araujo: linear-gradient(135deg, hsl(217 100% 37%) 0%, hsl(217 100% 47%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 96%) 100%);
     
     /* Shadows */
-    --shadow-glow: 0 0 60px hsl(267 85% 58% / 0.3);
+    --shadow-glow: 0 0 60px hsl(223 77% 42% / 0.3);
     --shadow-glow-blue: 0 0 60px hsl(217 100% 37% / 0.3);
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
@@ -109,7 +109,7 @@ All colors MUST be HSL.
     --popover: 217 19% 20%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 267 95% 57%;
+    --primary: 223 77% 42%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217 19% 27%;
@@ -126,7 +126,7 @@ All colors MUST be HSL.
 
     --border: 217 19% 27%;
     --input: 217 19% 27%;
-    --ring: 267 95% 57%;
+    --ring: 223 77% 42%;
   }
 }
 
