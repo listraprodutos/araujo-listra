@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.7.1';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -13,6 +14,11 @@ serve(async (req) => {
   try {
     const { medicines } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    
+    // Initialize Supabase client
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabase = createClient(supabaseUrl, supabaseKey);
     
     if (!LOVABLE_API_KEY) {
       throw new Error("LOVABLE_API_KEY is not configured");
@@ -122,15 +128,45 @@ STYLE:
     console.log("Generation response received");
 
     // Extract the base64 image from the response
-    const imageUrl = data.choices?.[0]?.message?.images?.[0]?.image_url?.url;
+    const base64Image = data.choices?.[0]?.message?.images?.[0]?.image_url?.url;
     
-    if (!imageUrl) {
+    if (!base64Image) {
       console.error("No image in response:", JSON.stringify(data));
       throw new Error("No image generated in response");
     }
 
+    // Convert base64 to blob for storage
+    console.log("Converting image to blob...");
+    const base64Data = base64Image.replace(/^data:image\/\w+;base64,/, '');
+    const imageBuffer = Uint8Array.from(atob(base64Data), c => c.charCodeAt(0));
+    
+    // Generate unique filename
+    const timestamp = new Date().getTime();
+    const filename = `${timestamp}-medicine-bag.png`;
+    
+    // Upload to Supabase Storage
+    console.log('Uploading image to storage:', filename);
+    const { data: uploadData, error: uploadError } = await supabase.storage
+      .from('medicine-bags')
+      .upload(filename, imageBuffer, {
+        contentType: 'image/png',
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (uploadError) {
+      console.error('Storage upload error:', uploadError);
+      throw new Error(`Failed to save image: ${uploadError.message}`);
+    }
+
+    // Get public URL
+    const { data: { publicUrl } } = supabase.storage
+      .from('medicine-bags')
+      .getPublicUrl(filename);
+
+    console.log('Successfully generated and uploaded image:', publicUrl);
     return new Response(
-      JSON.stringify({ imageUrl }),
+      JSON.stringify({ imageUrl: publicUrl }),
       {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 200,
