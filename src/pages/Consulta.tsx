@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Plus, ShoppingBag, Loader2, X, Download, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import listraLogo from "@/assets/listra-logo-header.png";
+import listraLogo2 from "@/assets/listra-logo-2.png";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -170,15 +171,15 @@ const Consulta = () => {
 
       setShowImageDialog(false);
       setShowSuccessDialog(true);
-      
-      // Redirect to home after 3 seconds
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
     } catch (error) {
       console.error("Error saving recipe:", error);
       toast.error("Erro ao salvar receita. Tente novamente.");
     }
+  };
+
+  const handleCloseSuccess = () => {
+    setShowSuccessDialog(false);
+    navigate('/');
   };
 
   return (
@@ -463,9 +464,16 @@ const Consulta = () => {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
+      <Dialog open={showSuccessDialog} onOpenChange={handleCloseSuccess}>
         <DialogContent className="max-w-2xl">
-          <div className="pt-6 space-y-4">
+          <div className="flex justify-center pt-6 pb-4">
+            <img 
+              src={listraLogo2} 
+              alt="Listra Digital" 
+              className="h-16 w-auto"
+            />
+          </div>
+          <div className="pt-2 space-y-4">
             <h2 className="text-2xl font-bold">Sua receita digital chegou na Listra.</h2>
             <p className="flex items-start gap-2">
               <span>✅</span>
