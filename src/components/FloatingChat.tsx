@@ -68,7 +68,7 @@ const FloatingChat = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <h3 className="font-bold text-lg text-gray-900">
-                  O que ainda falta para vocês, Araújo?
+                  Quais os sintomas que vocês ainda possuem? O que falta para vocês?
                 </h3>
                 <p className="text-gray-600">
                   Onde dói?
