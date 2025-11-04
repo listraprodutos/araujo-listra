@@ -68,7 +68,7 @@ const FloatingChat = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <h3 className="font-bold text-lg text-gray-900">
-                  Quais os sintomas que vocês ainda possuem? O que falta para vocês?
+                  Quais os sintomas vocês possuem? Onde dói?
                 </h3>
                 <p className="text-gray-600">
                   Onde dói?
