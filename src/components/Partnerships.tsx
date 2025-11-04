@@ -73,9 +73,9 @@ const Partnerships = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
-            <Award className="w-10 h-10 md:w-12 md:h-12 text-primary" strokeWidth={2} />
+            <Award className="w-10 h-10 md:w-12 md:h-12 text-listra-footer" strokeWidth={2} />
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center">
-              <span className="text-primary">PARCERIAS DURADOURAS</span>
+              <span className="text-listra-footer">PARCERIAS DURADOURAS</span>
             </h2>
           </div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -90,7 +90,7 @@ const Partnerships = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <Card className="bg-white border-2 border-border hover:border-primary/50 hover:shadow-2xl transition-all duration-300 rounded-3xl overflow-hidden">
+          <Card className="bg-white border-2 border-listra-footer/40 hover:border-listra-footer hover:shadow-2xl transition-all duration-300 rounded-3xl overflow-hidden">
             <CardContent className="p-8 md:p-10 lg:p-12 relative">
               <img 
                 src={dmaLogoMain} 
@@ -105,13 +105,13 @@ const Partnerships = () => {
               <div className="mb-8">
                 <h3 className="text-4xl font-bold mb-3">{mainPartner.company}</h3>
                 <div className="flex flex-wrap gap-3 text-base text-muted-foreground">
-                  <span className="font-semibold text-primary">{mainPartner.duration}</span>
+                  <span className="font-semibold text-listra-footer">{mainPartner.duration}</span>
                   <span>•</span>
                   <span>{mainPartner.industry}</span>
                 </div>
               </div>
 
-              <blockquote className="text-xl leading-relaxed mb-8 text-foreground italic border-l-4 border-primary pl-6">
+              <blockquote className="text-xl leading-relaxed mb-8 text-foreground italic border-l-4 border-listra-footer pl-6">
                 "{mainPartner.testimonial}"
               </blockquote>
 
@@ -121,15 +121,15 @@ const Partnerships = () => {
               </div>
 
               <div className="mt-10 pt-10 border-t-2 border-border">
-                <div className="font-bold text-xl mb-6 text-primary">Resultados entregues:</div>
+                <div className="font-bold text-xl mb-6 text-listra-footer">Resultados entregues:</div>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {mainPartner.results.map((result, index) => (
                     <motion.div
                       key={index}
-                      className="text-center p-4 rounded-xl bg-primary/5 hover:bg-primary/10 transition-colors"
+                      className="text-center p-4 rounded-xl bg-listra-footer/5 hover:bg-listra-footer/10 transition-colors"
                       whileHover={{ scale: 1.05 }}
                     >
-                      <div className="text-4xl font-bold text-primary mb-2">{result.metric}</div>
+                      <div className="text-4xl font-bold text-listra-footer mb-2">{result.metric}</div>
                       <div className="text-sm text-muted-foreground">{result.label}</div>
                     </motion.div>
                   ))}
@@ -148,7 +148,7 @@ const Partnerships = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
             >
-              <Card className="h-full bg-white border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 rounded-3xl">
+              <Card className="h-full bg-white border-2 border-listra-footer/40 hover:border-listra-footer hover:shadow-xl transition-all duration-300 rounded-3xl">
                 <CardContent className="p-6 md:p-8 relative">
                   {partner.logo && (
                     <>
@@ -165,13 +165,13 @@ const Partnerships = () => {
                     </>
                   )}
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-6 h-6 text-primary" strokeWidth={2} />
+                    <div className="w-12 h-12 rounded-xl bg-listra-footer/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-6 h-6 text-listra-footer" strokeWidth={2} />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold mb-2">{partner.company}</h3>
                       <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
-                        <span className="font-semibold text-primary">{partner.duration}</span>
+                        <span className="font-semibold text-listra-footer">{partner.duration}</span>
                         <span>•</span>
                         <span>{partner.industry}</span>
                       </div>
@@ -197,7 +197,7 @@ const Partnerships = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Card className="h-full bg-white border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 rounded-3xl">
+            <Card className="h-full bg-white border-2 border-listra-footer/40 hover:border-listra-footer hover:shadow-xl transition-all duration-300 rounded-3xl">
               <CardContent className="p-8">
                 <div className="space-y-6">
                   {additionalPartners.map((partner, index) => (
@@ -212,7 +212,7 @@ const Partnerships = () => {
                       />
                       <div className="flex-1">
                         <h3 className="text-lg font-bold mb-1">{partner.company}</h3>
-                        <p className="text-sm font-semibold text-primary mb-1">{partner.duration}</p>
+                        <p className="text-sm font-semibold text-listra-footer mb-1">{partner.duration}</p>
                         <p className="text-sm text-muted-foreground">{partner.industry}</p>
                       </div>
                     </div>
@@ -230,13 +230,13 @@ const Partnerships = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-3xl p-12 border border-primary/20">
+          <div className="bg-gradient-to-br from-listra-footer/10 via-listra-footer/5 to-transparent rounded-3xl p-12 border border-listra-footer/20">
             <p className="text-2xl lg:text-3xl leading-relaxed font-medium">
               Construímos relações de longo prazo.
               <br />
               Porque crescimento real leva tempo.
               <br />E parceria verdadeira se prova com{" "}
-              <span className="text-primary font-bold">consistência</span>.
+              <span className="text-listra-footer font-bold">consistência</span>.
             </p>
           </div>
         </motion.div>
