@@ -43,7 +43,7 @@ const WhoWeAre = () => {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center md:text-left">
               <span className="text-foreground">MINEIROS COMO VOCÊS</span>
             </h2>
-            <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 md:mt-4">
+            <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 mt-5 md:mt-9">
               <img 
                 src={seloIcon} 
                 alt="Selo" 
