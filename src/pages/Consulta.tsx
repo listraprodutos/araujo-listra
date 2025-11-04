@@ -382,33 +382,33 @@ const Consulta = () => {
                         </div>
                       </div>
                     ) : (
-                      <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-4 w-full">
-                        {bag.map((medicine, index) => (
-                          <Reorder.Item key={medicine.id} value={medicine}>
-                            <motion.div
-                              layout
-                              initial={{ opacity: 0, y: -10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -10 }}
-                              className="bg-transparent p-2 cursor-move relative group"
-                              style={{
-                                fontFamily: "'Caveat', cursive",
-                                fontSize: '1.5rem',
-                                color: '#2c3e50',
-                                paddingLeft: '8px',
-                              }}
-                            >
-                              <button
+                      <>
+                        <p className="text-xs text-muted-foreground mb-3 italic">
+                          * Clique na palavra para excluir
+                        </p>
+                        <Reorder.Group axis="y" values={bag} onReorder={setBag} className="space-y-4 w-full">
+                          {bag.map((medicine, index) => (
+                            <Reorder.Item key={medicine.id} value={medicine}>
+                              <motion.div
+                                layout
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
                                 onClick={() => removeFromBag(medicine.id)}
-                                className="absolute -left-10 top-1/2 -translate-y-1/2 text-red-500 hover:text-red-700 z-10 opacity-70 hover:opacity-100 bg-white/80 rounded-full p-1"
+                                className="bg-transparent p-2 cursor-pointer hover:opacity-70 transition-opacity"
+                                style={{
+                                  fontFamily: "'Caveat', cursive",
+                                  fontSize: '1.5rem',
+                                  color: '#2c3e50',
+                                  paddingLeft: '8px',
+                                }}
                               >
-                                <X className="w-4 h-4" />
-                              </button>
-                              <p className="font-bold">• {medicine.label}</p>
-                            </motion.div>
-                          </Reorder.Item>
-                        ))}
-                      </Reorder.Group>
+                                <p className="font-bold">• {medicine.label}</p>
+                              </motion.div>
+                            </Reorder.Item>
+                          ))}
+                        </Reorder.Group>
+                      </>
                     )}
                   </div>
 
