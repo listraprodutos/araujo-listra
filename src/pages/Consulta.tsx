@@ -7,6 +7,7 @@ import { ArrowLeft, Plus, ShoppingBag, Loader2, X, Download, Home } from "lucide
 import { useNavigate } from "react-router-dom";
 import listraLogo from "@/assets/listra-logo-header.png";
 import listraLogo2 from "@/assets/listra-logo-2.png";
+import listraLogoColor from "@/assets/listra-logo-color.png";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -435,35 +436,70 @@ const Consulta = () => {
       </div>
 
       <Dialog open={showImageDialog} onOpenChange={setShowImageDialog}>
-        <DialogContent className="max-w-3xl">
-          <DialogHeader>
-            <DialogTitle className="text-2xl">Sua Receita Digital!</DialogTitle>
-            <DialogDescription>
-              Aqui está a visualização da sua sacola com os remédios selecionados
-            </DialogDescription>
-          </DialogHeader>
-          <div className="relative">
-            {generatedImage && (
-              <img
-                src={generatedImage}
-                alt="Sacola de remédios gerada"
-                className="w-full h-auto rounded-lg"
-              />
-            )}
-          </div>
-          <div className="flex gap-4 justify-end">
-            <Button
-              variant="outline"
-              onClick={downloadImage}
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Salvar Imagem
-            </Button>
-            <Button
-              onClick={saveRecipe}
-            >
-              Confirmar e Enviar
-            </Button>
+        <DialogContent className="max-w-5xl">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 py-4">
+            {/* Left side - Text */}
+            <div className="space-y-4 flex flex-col justify-between">
+              <div className="space-y-4">
+                <img 
+                  src={listraLogoColor} 
+                  alt="Listra Digital" 
+                  className="h-12 w-auto"
+                />
+                
+                <h2 className="text-2xl font-bold">Receita pronta! 💊</h2>
+                
+                <div className="space-y-3 text-sm lg:text-base">
+                  <p>
+                    Esses remédios podem ajudar a aliviar os sintomas de agora.
+                    Mas a verdade é que a gente acredita em tratamento de longo prazo.
+                  </p>
+                  
+                  <p>
+                    Porque 120 anos de história não merecem só uma receita.
+                    Merecem um parceiro que pense nos próximos 120, junto com vocês.
+                  </p>
+                  
+                  <p>
+                    E se algum sintoma não apareceu aqui, não tem problema: a gente adora descobrir junto, investigar mais a fundo e criar soluções novas.
+                  </p>
+                  
+                  <p className="font-semibold">Vamos conversar?</p>
+                  
+                  <p className="text-listra-footer font-bold">
+                    Listra. Há 15 anos criando impacto digital. Juntos.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  variant="outline"
+                  onClick={downloadImage}
+                  className="w-full sm:w-auto"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Salvar Imagem
+                </Button>
+                <Button
+                  onClick={saveRecipe}
+                  className="w-full sm:w-auto"
+                >
+                  Confirmar e Enviar
+                </Button>
+              </div>
+            </div>
+            
+            {/* Right side - Image */}
+            <div className="flex items-center justify-center">
+              {generatedImage && (
+                <img
+                  src={generatedImage}
+                  alt="Sacola de remédios gerada"
+                  className="w-full h-auto rounded-lg max-w-md"
+                />
+              )}
+            </div>
           </div>
         </DialogContent>
       </Dialog>
