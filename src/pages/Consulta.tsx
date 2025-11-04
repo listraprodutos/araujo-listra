@@ -341,7 +341,7 @@ const Consulta = () => {
                               initial={{ opacity: 0, scale: 0.8 }}
                               animate={{ opacity: 1, scale: 1 }}
                               exit={{ opacity: 0, scale: 0.8 }}
-                              className={`${medicine.color} text-gray-800 p-3 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow relative group border border-gray-200`}
+                              className="bg-transparent text-gray-800 p-3 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-shadow relative group border border-white/30"
                               style={{
                                 borderRadius: '4px',
                                 clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
