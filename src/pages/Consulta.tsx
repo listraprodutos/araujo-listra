@@ -3,8 +3,9 @@ import { motion, Reorder } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Plus, ShoppingBag, Loader2, X, Download } from "lucide-react";
+import { ArrowLeft, Plus, ShoppingBag, Loader2, X, Download, Home } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import listraLogo from "@/assets/listra-logo-header.png";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -168,15 +169,28 @@ const Consulta = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
+      
+      {/* Header Menu */}
+      <header className="bg-primary py-4 px-6 shadow-md">
+        <div className="container mx-auto flex items-center justify-center relative">
+          <Button
+            variant="ghost"
+            onClick={() => navigate("/")}
+            className="absolute left-0 text-white hover:bg-primary-foreground/10"
+            size="icon"
+          >
+            <Home className="w-5 h-5" />
+          </Button>
+          
+          <img 
+            src={listraLogo} 
+            alt="Listra Digital" 
+            className="h-10"
+          />
+        </div>
+      </header>
+
       <div className="container mx-auto px-4 py-8">
-        <Button
-          variant="ghost"
-          onClick={() => navigate("/")}
-          className="mb-8"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Voltar
-        </Button>
 
         <div className="max-w-6xl mx-auto">
           <motion.div
