@@ -160,26 +160,6 @@ const Consulta = () => {
     }
   };
 
-  const saveRecipe = async () => {
-    if (!generatedImage) return;
-
-    try {
-      const { error } = await supabase
-        .from('receitas_digitais')
-        .insert({
-          medicines: bag as any,
-          image_url: generatedImage
-        });
-
-      if (error) throw error;
-
-      setShowImageDialog(false);
-      setShowSuccessDialog(true);
-    } catch (error) {
-      console.error("Error saving recipe:", error);
-      toast.error("Erro ao salvar receita. Tente novamente.");
-    }
-  };
 
   const handleCloseSuccess = () => {
     setShowSuccessDialog(false);
@@ -472,22 +452,14 @@ const Consulta = () => {
                 </div>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button
-                  variant="outline"
-                  onClick={downloadImage}
-                  className="w-full sm:w-auto"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Salvar Imagem
-                </Button>
-                <Button
-                  onClick={saveRecipe}
-                  className="w-full sm:w-auto"
-                >
-                  Confirmar e Enviar
-                </Button>
-              </div>
+              <Button
+                variant="outline"
+                onClick={downloadImage}
+                className="w-full sm:w-auto"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Salvar Imagem
+              </Button>
             </div>
             
             {/* Right side - Image */}
