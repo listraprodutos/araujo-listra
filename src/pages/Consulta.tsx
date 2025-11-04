@@ -432,8 +432,7 @@ const Consulta = () => {
                 
                 <div className="space-y-3 text-sm lg:text-base">
                   <p>
-                    Esses remédios podem ajudar a aliviar os sintomas de agora.
-                    Mas a verdade é que a gente acredita em tratamento de longo prazo.
+                    Os remédios escolhidos já ajudam a aliviar as dores de agora. Mas quando a marca tem 120 anos de legado, o tratamento precisa olhar também pro futuro.
                   </p>
                   
                   <p>
