@@ -68,6 +68,16 @@ const Consulta = () => {
     }
   };
 
+  const handleTapToAdd = (symptom: Medicine) => {
+    if (bag.length >= 5) {
+      toast.error("Máximo de 5 remédios permitidos!");
+      return;
+    }
+    setBag([...bag, symptom]);
+    setSymptoms(symptoms.filter(s => s.id !== symptom.id));
+    toast.success(`${symptom.label} adicionado à sua receita!`);
+  };
+
   const addCustomSymptom = () => {
     if (customInput.trim()) {
       const newSymptom = {
@@ -209,45 +219,59 @@ const Consulta = () => {
 
           <div 
             ref={dragConstraintsRef}
-            className="grid lg:grid-cols-2 gap-8"
+            className="grid lg:grid-cols-2 gap-6 lg:gap-8"
           >
             {/* Left side - Symptoms */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
+              className="lg:order-1 order-2"
             >
               <Card className="h-full">
-                <CardContent className="p-8">
+                <CardContent className="p-6 lg:p-8">
                   <div className="mb-6">
-                    <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                      <span className="text-3xl">💊</span>
+                    <h2 className="text-xl lg:text-2xl font-bold mb-2 flex items-center gap-2">
+                      <span className="text-2xl lg:text-3xl">💊</span>
                       Necessidades Disponíveis
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                      Selecione até 5 remédios para sua receita
+                      <span className="hidden lg:inline">Arraste</span>
+                      <span className="lg:hidden">Toque</span> até 5 remédios para sua receita
                     </p>
                   </div>
 
-                  <div className="space-y-4 mb-6">
+                  <div className="space-y-3 lg:space-y-4 mb-6 max-h-[40vh] lg:max-h-none overflow-y-auto lg:overflow-visible">
                     {symptoms.map((symptom, index) => (
                       <motion.div
                         key={symptom.id}
-                        drag={bag.length < 5}
+                        drag={bag.length < 5 ? "y" : false}
                         dragConstraints={dragConstraintsRef}
                         dragElastic={0.1}
                         onDragEnd={(e, info) => handleDragEnd(symptom, info)}
                         whileDrag={{ scale: 1.1, rotate: 5, zIndex: 50 }}
                         initial={{ rotate: index % 2 === 0 ? -2 : 2 }}
                         whileHover={{ rotate: 0, scale: 1.05 }}
-                        className={`${symptom.color} text-gray-800 px-6 py-4 ${bag.length < 5 ? 'cursor-grab active:cursor-grabbing' : 'cursor-not-allowed opacity-50'} shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200`}
+                        className={`${symptom.color} text-gray-800 px-4 lg:px-6 py-3 lg:py-4 ${bag.length < 5 ? 'cursor-grab active:cursor-grabbing lg:cursor-grab' : 'cursor-not-allowed opacity-50'} shadow-[0_2px_8px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all border border-gray-200 relative group`}
                         style={{
                           borderRadius: '4px',
                           clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
                           fontFamily: "'Caveat', cursive",
                         }}
                       >
-                        <p className="font-bold text-center text-2xl">{symptom.label}</p>
+                        <p className="font-bold text-center text-xl lg:text-2xl">{symptom.label}</p>
+                        
+                        {/* Mobile: Tap button */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleTapToAdd(symptom);
+                          }}
+                          disabled={bag.length >= 5}
+                          className="lg:hidden absolute top-2 right-2 w-8 h-8 rounded-full bg-listra-footer text-white flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity disabled:opacity-30"
+                        >
+                          <Plus className="w-5 h-5" />
+                        </button>
                       </motion.div>
                     ))}
                   </div>
@@ -282,7 +306,7 @@ const Consulta = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="relative"
+              className="relative lg:order-2 order-1"
             >
               {/* Bag SVG Background */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
@@ -310,12 +334,12 @@ const Consulta = () => {
 
               <Card 
                 id="drop-zone"
-                className="h-full border-0 bg-transparent relative z-10"
+                className="h-full border-0 bg-transparent relative z-10 min-h-[45vh] lg:min-h-0"
               >
-                <CardContent className="p-8 h-full flex flex-col">
-                  <div className="mb-6 text-center -mt-[30px]">
-                    <h2 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
-                      <ShoppingBag className="w-6 h-6 text-primary" />
+                <CardContent className="p-6 lg:p-8 h-full flex flex-col">
+                  <div className="mb-4 lg:mb-6 text-center lg:-mt-[30px]">
+                    <h2 className="text-xl lg:text-2xl font-bold mb-2 flex items-center justify-center gap-2">
+                      <ShoppingBag className="w-5 h-5 lg:w-6 lg:h-6 text-primary" />
                       Sua Receita
                     </h2>
                     <p className="text-sm text-muted-foreground">
@@ -323,7 +347,7 @@ const Consulta = () => {
                     </p>
                   </div>
 
-                  <div className="flex-1 mb-6 overflow-y-auto min-h-[400px] relative flex flex-col items-center pt-12">
+                  <div className="flex-1 mb-4 lg:mb-6 overflow-y-auto min-h-[200px] lg:min-h-[400px] relative flex flex-col items-center pt-6 lg:pt-12">
                     {bag.length === 0 ? (
                       <div className="h-full flex items-center justify-center text-center text-muted-foreground">
                         <div>
@@ -365,7 +389,7 @@ const Consulta = () => {
                     onClick={finishConsultation}
                     disabled={bag.length === 0 || isGenerating}
                     size="lg"
-                    className="w-full text-lg py-6"
+                    className="w-full text-base lg:text-lg py-5 lg:py-6"
                   >
                     {isGenerating ? (
                       <>
