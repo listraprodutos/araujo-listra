@@ -3,9 +3,10 @@ import { motion, Reorder } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, Plus, ShoppingBag, Loader2, X } from "lucide-react";
+import { ArrowLeft, Plus, ShoppingBag, Loader2, X, Download } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Dialog,
   DialogContent,
@@ -87,6 +88,18 @@ const Consulta = () => {
     }
   };
 
+  const downloadImage = () => {
+    if (!generatedImage) return;
+    
+    const link = document.createElement('a');
+    link.href = generatedImage;
+    link.download = 'receita-digital-araujo.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    toast.success("Imagem salva com sucesso!");
+  };
+
   const finishConsultation = async () => {
     if (bag.length === 0) {
       toast.error("Adicione pelo menos uma necessidade à sua receita!");
@@ -130,6 +143,48 @@ const Consulta = () => {
     }
   };
 
+  const saveRecipe = async () => {
+    if (!generatedImage) return;
+
+    try {
+      const { error } = await supabase
+        .from('receitas_digitais')
+        .insert({
+          medicines: bag as any,
+          image_url: generatedImage
+        });
+
+      if (error) throw error;
+
+      setShowImageDialog(false);
+      
+      // Show success message
+      toast.success(
+        <div className="text-left">
+          <p className="font-bold mb-2">Sua receita digital chegou na Listra.</p>
+          <p className="text-sm mb-2">🧪 Status: Aguardando aprovação para iniciar tratamento</p>
+          <p className="text-sm mb-2">Nossa equipe está pronta para preparar a dose certa de:</p>
+          <ul className="text-sm list-disc list-inside mb-2">
+            <li>Estratégia</li>
+            <li>Tecnologia</li>
+            <li>Criatividade</li>
+            <li>Resultado</li>
+            <li>Vontade de fazer acontecer</li>
+          </ul>
+          <p className="text-sm mb-2">Tempo estimado para retorno: Assim que vocês quiserem conversar!</p>
+          <p className="text-sm mb-2">💬 Ou se preferir, chama a gente no WhatsApp: [31] 99082 1151</p>
+          <p className="text-sm font-bold">💜 Listra Digital - 15 anos criando impacto digital. Juntos.</p>
+        </div>,
+        { duration: 10000 }
+      );
+
+      setTimeout(() => navigate("/"), 3000);
+    } catch (error) {
+      console.error("Error saving recipe:", error);
+      toast.error("Erro ao salvar receita. Tente novamente.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
@@ -147,14 +202,16 @@ const Consulta = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
+            className="text-center mb-12 max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-              Monte Sua Receita Digital
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              MONTE SUA RECEITA DIGITAL
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Arraste as necessidades para a sacola ou adicione as suas próprias
-            </p>
+            <div className="space-y-2 text-lg text-muted-foreground">
+              <p className="font-semibold">Todo mineiro já sabe que na Araujo tem tudo.</p>
+              <p>Agora é a nossa vez de perguntar: o que falta para vocês?</p>
+              <p className="font-medium">Selecione ou escreva até 5 palavras.</p>
+            </div>
           </motion.div>
 
           <div 
@@ -355,16 +412,13 @@ const Consulta = () => {
           <div className="flex gap-4 justify-end">
             <Button
               variant="outline"
-              onClick={() => setShowImageDialog(false)}
+              onClick={downloadImage}
             >
-              Fechar
+              <Download className="w-4 h-4 mr-2" />
+              Salvar Imagem
             </Button>
             <Button
-              onClick={() => {
-                setShowImageDialog(false);
-                toast.success("Receita enviada! Entraremos em contato em breve.");
-                setTimeout(() => navigate("/"), 2000);
-              }}
+              onClick={saveRecipe}
             >
               Confirmar e Enviar
             </Button>

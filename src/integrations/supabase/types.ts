@@ -14,7 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      receitas_digitais: {
+        Row: {
+          created_at: string
+          id: string
+          image_url: string | null
+          medicines: Json
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          medicines: Json
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          medicines?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
