@@ -47,6 +47,7 @@ const Consulta = () => {
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [showImageDialog, setShowImageDialog] = useState(false);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+  const [showBulaDialog, setShowBulaDialog] = useState(false);
   const [fallingItems, setFallingItems] = useState<string[]>([]);
   const dragConstraintsRef = useRef(null);
 
@@ -131,6 +132,20 @@ const Consulta = () => {
     "Falta automação em pontos-chave": "AUTOMAX®",
     "A experiência ainda não encanta": "ENCANTOL®",
     "Estamos perdendo relevância digital": "RELEVAX®"
+  };
+
+  // Mapeamento das bulas (descrições) dos remédios
+  const bulaDescriptions: Record<string, string> = {
+    "GENZIUM®": "Engaja novas gerações com linguagem, canais e conteúdo pensados para o público jovem.",
+    "DATANALGINA®": "Transforma dados em decisões estratégicas com análises claras e práticas para marketing e experiência do cliente.",
+    "CRIATIDOL®": "Potencializa ideias criativas para campanhas, formatos e conteúdos que fogem do óbvio.",
+    "RELACIONEX®": "Reforça a conexão emocional com o cliente, com comunicação mais próxima, empática e constante.",
+    "OMNILINK®": "Integra canais físicos e digitais, garantindo uma jornada fluida e consistente para o consumidor.",
+    "MAPPEX®": "Mapeia e estrutura a jornada do cliente, identificando pontos de atrito e oportunidades de encantamento.",
+    "IMPACTIL®": "Dá força ao conteúdo com mais impacto, criatividade e performance — sem perder o propósito.",
+    "AUTOMAX®": "Automatiza processos-chave para ganhar eficiência, escala e previsibilidade.",
+    "ENCANTOL®": "Melhora a experiência do usuário com foco em usabilidade, emoção e fidelização.",
+    "RELEVAX®": "Fortalece a presença digital contínua da marca, garantindo relevância, atualização e consistência."
   };
 
   const finishConsultation = async () => {
@@ -472,14 +487,24 @@ const Consulta = () => {
                 </div>
               </div>
               
-              <Button
-                variant="outline"
-                onClick={downloadImage}
-                className="w-full sm:w-auto"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Salvar Imagem
-              </Button>
+              <div className="flex gap-2 flex-wrap">
+                <Button
+                  variant="outline"
+                  onClick={downloadImage}
+                  className="flex-1 sm:flex-initial"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Salvar Imagem
+                </Button>
+                
+                <Button
+                  variant="default"
+                  onClick={() => setShowBulaDialog(true)}
+                  className="flex-1 sm:flex-initial"
+                >
+                  📋 Bula Digital
+                </Button>
+              </div>
             </div>
             
             {/* Right side - Image */}
@@ -537,6 +562,53 @@ const Consulta = () => {
             </p>
             <p className="text-listra-footer font-bold pt-4">
               💜 Listra Digital - 15 anos criando impacto digital. Juntos.
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Dialog de Bula Digital */}
+      <Dialog open={showBulaDialog} onOpenChange={setShowBulaDialog}>
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <div className="flex items-center gap-3 mb-2">
+              <img 
+                src={listraLogoColor} 
+                alt="Listra Digital" 
+                className="h-10 w-auto"
+              />
+            </div>
+            <DialogTitle className="text-2xl">Bula Digital - Receita Araujo</DialogTitle>
+            <DialogDescription>
+              Confira abaixo o que cada remédio da sua receita trata
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-6 pt-4">
+            {bag.map((medicine) => {
+              const medicineName = medicineMappings[medicine.label] || medicine.label;
+              const description = bulaDescriptions[medicineName] || "Solução personalizada para necessidades específicas da sua marca.";
+              
+              return (
+                <div key={medicine.id} className="border-l-4 border-listra-footer pl-4 py-2">
+                  <h3 className="text-xl font-bold text-listra-footer mb-2">
+                    💊 {medicineName}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-1">
+                    <strong>🩺 O que trata:</strong>
+                  </p>
+                  <p className="text-base">
+                    {description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+          
+          <div className="mt-6 pt-4 border-t">
+            <p className="text-sm text-muted-foreground">
+              <strong>💡 Observação:</strong> Cada tratamento é personalizado conforme as necessidades da sua marca. 
+              Entre em contato para um diagnóstico completo.
             </p>
           </div>
         </DialogContent>
