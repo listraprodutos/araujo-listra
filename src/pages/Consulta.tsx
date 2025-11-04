@@ -435,7 +435,7 @@ const Consulta = () => {
             </p>
             <p className="flex items-start gap-2">
               <span>💬</span>
-              <span>Ou se preferir, chama a gente no WhatsApp: <strong>[31] 99082 1151</strong></span>
+              <span>Ou se preferir, chama a gente no WhatsApp: <a href="https://api.whatsapp.com/send?phone=31990821151" target="_blank" rel="noopener noreferrer" className="font-bold text-primary hover:underline">[31] 99082 1151</a></span>
             </p>
             <p className="text-primary font-bold pt-4">
               💜 Listra Digital - 15 anos criando impacto digital. Juntos.
