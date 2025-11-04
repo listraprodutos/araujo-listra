@@ -9,6 +9,16 @@ const WhoWeAre = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const scrollToNextSection = () => {
+    const currentSection = ref.current;
+    if (currentSection) {
+      const nextSection = currentSection.nextElementSibling;
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   const services = [
     {
       icon: Layers,
@@ -43,13 +53,18 @@ const WhoWeAre = () => {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center md:text-left">
               <span className="text-foreground">MINEIROS COMO VOCÊS</span>
             </h2>
-            <div className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 mt-5 md:mt-9">
+            <motion.div 
+              className="relative w-16 h-16 md:w-20 md:h-20 flex-shrink-0 mt-12 md:mt-16 cursor-pointer"
+              onClick={scrollToNextSection}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <img 
                 src={seloIcon} 
                 alt="Selo" 
                 className="w-full h-full"
               />
-            </div>
+            </motion.div>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Somos uma empresa de Belo Horizonte que há 15 anos conecta TI e Growth Marketing para impulsionar negócios. Acreditamos em inovação com propósito.
