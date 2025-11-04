@@ -428,7 +428,7 @@ const Consulta = () => {
                   className="h-12 w-auto"
                 />
                 
-                <h2 className="text-2xl font-bold">Uma receita feita sob medida. Mas o tratamento é de longo prazo.</h2>
+                <h2 className="text-2xl font-bold">Essa receita trata os sintomas. Mas a gente quer cuidar da história.</h2>
                 
                 <div className="space-y-3 text-sm lg:text-base">
                   <p>
