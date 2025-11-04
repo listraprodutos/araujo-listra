@@ -355,11 +355,21 @@ const Consulta = () => {
                 }}
               >
                 <CardContent className="p-6 lg:p-8 h-full flex flex-col" style={{ paddingLeft: '60px' }}>
-                  <div className="mb-4 lg:mb-6 text-center">
-                    <h2 className="text-xl lg:text-2xl font-bold mb-2" style={{ fontFamily: "'Caveat', cursive" }}>
-                      Sua Receita
+                  <div className="mb-4 lg:mb-6">
+                    <div className="flex items-start gap-3 mb-4">
+                      <img 
+                        src={listraLogo2} 
+                        alt="Listra Digital" 
+                        className="h-8 w-auto"
+                      />
+                    </div>
+                    <h2 className="text-xl lg:text-2xl font-bold mb-3">
+                      Receituário
                     </h2>
-                    <p className="text-sm" style={{ fontFamily: "'Caveat', cursive", color: '#666' }}>
+                    <p className="text-sm font-semibold mb-2">
+                      Nome: Araújo
+                    </p>
+                    <p className="text-xs text-muted-foreground">
                       {bag.length}/5 necessidades selecionadas
                     </p>
                   </div>
