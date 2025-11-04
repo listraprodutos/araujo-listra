@@ -41,6 +41,14 @@ const Footer = () => {
             >
               <Mail className="w-6 h-6 text-white" />
             </a>
+            <a 
+              href="https://www.listradigital.com.br" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white text-sm font-medium"
+            >
+              Acesse nosso site
+            </a>
           </div>
           
           <div className="text-sm text-white/60 pt-6 border-t border-white/10 max-w-xs mx-auto">
