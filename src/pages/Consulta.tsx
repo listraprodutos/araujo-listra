@@ -119,6 +119,20 @@ const Consulta = () => {
     toast.success("Imagem salva com sucesso!");
   };
 
+  // Mapeamento de frases originais para nomes de remédios
+  const medicineMappings: Record<string, string> = {
+    "Dificuldade em engajar novas gerações": "GENZIUM®",
+    "Baixo aproveitamento dos dados": "DATANALGINA®",
+    "Precisamos de ideias mais criativas": "CRIATIDOL®",
+    "Conexão com o cliente está distante": "RELACIONEX®",
+    "Muito canal, pouca integração": "OMNILINK®",
+    "Jornada do cliente mal mapeada": "MAPPEX®",
+    "Conteúdos com pouco impacto": "IMPACTIL®",
+    "Falta automação em pontos-chave": "AUTOMAX®",
+    "A experiência ainda não encanta": "ENCANTOL®",
+    "Estamos perdendo relevância digital": "RELEVAX®"
+  };
+
   const finishConsultation = async () => {
     if (bag.length === 0) {
       toast.error("Adicione pelo menos uma necessidade à sua receita!");
@@ -129,6 +143,12 @@ const Consulta = () => {
     toast.loading("Gerando sua imagem personalizada...");
 
     try {
+      // Mapear as frases para nomes de remédios
+      const mappedMedicines = bag.map(med => ({
+        ...med,
+        medicineName: medicineMappings[med.label] || med.label // Usa o nome mapeado ou o texto original
+      }));
+
       const response = await fetch(
         `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-medicine-bag`,
         {
@@ -137,7 +157,7 @@ const Consulta = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            medicines: bag,
+            medicines: mappedMedicines,
           }),
         }
       );

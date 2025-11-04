@@ -40,7 +40,7 @@ serve(async (req) => {
     }
 
     // Build the standardized prompt for image generation
-    const medicineNames = medicines.map((m: any) => m.label).join(", ");
+    const medicineNames = medicines.map((m: any) => m.medicineName || m.label).join(", ");
     const prompt = `Create a professional, realistic 3D product photograph of a transparent white plastic shopping bag (like pharmacy bags) filled with colorful medicine boxes.
 
 COMPOSITION:
@@ -54,6 +54,7 @@ MEDICINE BOXES (label each with): ${medicineNames}
 - Each box MUST display "Listra" logo in small text at bottom
 - Box sizes: medium rectangular pharmaceutical packaging style
 - Labels are clearly readable, facing forward
+- IMPORTANT: Display the medicine names EXACTLY as provided (including ® symbol)
 
 STYLE:
 - Photo-realistic 3D render
