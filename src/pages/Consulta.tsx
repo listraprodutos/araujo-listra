@@ -28,12 +28,13 @@ const initialSymptoms = [
   { id: "engajamento", label: "Dificuldade em engajar novas gerações", color: "bg-white" },
   { id: "dados", label: "Baixo aproveitamento dos dados", color: "bg-white" },
   { id: "criatividade", label: "Precisamos de ideias mais criativas", color: "bg-white" },
+  { id: "conexao", label: "Conexão com o cliente está distante", color: "bg-white" },
   { id: "integracao", label: "Muito canal, pouca integração", color: "bg-white" },
   { id: "jornada", label: "Jornada do cliente mal mapeada", color: "bg-white" },
+  { id: "conteudos", label: "Conteúdos com pouco impacto", color: "bg-white" },
   { id: "automacao", label: "Falta automação em pontos-chave", color: "bg-white" },
   { id: "experiencia", label: "A experiência ainda não encanta", color: "bg-white" },
   { id: "relevancia", label: "Estamos perdendo relevância digital", color: "bg-white" },
-  { id: "conexao", label: "Conexão com o cliente está distante", color: "bg-white" },
 ];
 
 const Consulta = () => {
@@ -427,7 +428,7 @@ const Consulta = () => {
                   className="h-12 w-auto"
                 />
                 
-                <h2 className="text-2xl font-bold">Receita pronta! 💊</h2>
+                <h2 className="text-2xl font-bold">Uma receita feita sob medida. Mas o tratamento é de longo prazo.</h2>
                 
                 <div className="space-y-3 text-sm lg:text-base">
                   <p>
