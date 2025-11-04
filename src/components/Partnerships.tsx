@@ -72,9 +72,9 @@ const Partnerships = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <Award className="w-12 h-12 text-primary" strokeWidth={2} />
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
+            <Award className="w-10 h-10 md:w-12 md:h-12 text-primary" strokeWidth={2} />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center">
               <span className="text-primary">PARCERIAS DURADOURAS</span>
             </h2>
           </div>
@@ -91,11 +91,16 @@ const Partnerships = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <Card className="bg-white border-2 border-border hover:border-primary/50 hover:shadow-2xl transition-all duration-300 rounded-3xl overflow-hidden">
-            <CardContent className="p-10 lg:p-12 relative">
+            <CardContent className="p-8 md:p-10 lg:p-12 relative">
               <img 
                 src={dmaLogoMain} 
                 alt="DMA Distribuidora" 
-                className="absolute top-8 right-8 h-16 w-auto object-contain"
+                className="hidden md:block absolute top-8 right-8 h-16 w-auto object-contain"
+              />
+              <img 
+                src={dmaLogoMain} 
+                alt="DMA Distribuidora" 
+                className="md:hidden h-12 w-auto object-contain mb-4"
               />
               <div className="mb-8">
                 <h3 className="text-4xl font-bold mb-3">{mainPartner.company}</h3>
@@ -144,13 +149,20 @@ const Partnerships = () => {
               transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
             >
               <Card className="h-full bg-white border-2 border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 rounded-3xl">
-                <CardContent className="p-8 relative">
+                <CardContent className="p-6 md:p-8 relative">
                   {partner.logo && (
-                    <img 
-                      src={partner.logo} 
-                      alt={partner.company} 
-                      className="absolute top-6 right-6 h-12 w-auto object-contain"
-                    />
+                    <>
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.company} 
+                        className="hidden md:block absolute top-6 right-6 h-12 w-auto object-contain"
+                      />
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.company} 
+                        className="md:hidden h-10 w-auto object-contain mb-4"
+                      />
+                    </>
                   )}
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">

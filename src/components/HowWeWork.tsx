@@ -77,8 +77,8 @@ const HowWeWork = () => {
           </h2>
         </motion.div>
 
-        {/* Circular Process */}
-        <div className="max-w-6xl mx-auto mb-32 mt-16">
+        {/* Circular Process - Desktop */}
+        <div className="max-w-6xl mx-auto mb-32 mt-16 hidden lg:block">
           <div className="relative w-full min-h-[600px] flex items-center justify-center">
             {/* Animated connecting circle */}
             <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] max-w-full" viewBox="0 0 600 600">
@@ -203,6 +203,38 @@ const HowWeWork = () => {
         }}>
             Loop contínuo de evolução
           </motion.p>
+        </div>
+
+        {/* Mobile Horizontal Scroll Process */}
+        <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 mb-16">
+          <div className="flex gap-4 pb-4">
+            {process.map((step, index) => (
+              <motion.div
+                key={index}
+                className="snap-start flex-shrink-0 w-[80vw]"
+                initial={{ opacity: 0, x: 50 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                <Card className="h-full bg-white border-2 border-primary/30 rounded-2xl shadow-lg">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-xl">
+                        {step.number}
+                      </div>
+                      <h3 className="text-xl font-bold text-primary pt-3">{step.title}</h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-center text-base text-muted-foreground mt-6 font-medium">
+            Loop contínuo de evolução
+          </p>
         </div>
 
         {/* Differentials */}

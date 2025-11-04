@@ -77,7 +77,7 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto text-center">
           {/* Logo Animation */}
           <motion.div
-            className="mb-12 flex items-center justify-center gap-12 sm:gap-16"
+            className="mb-12 flex items-center justify-center gap-6 sm:gap-12 lg:gap-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.5 }}
@@ -85,13 +85,13 @@ const Hero = () => {
             <motion.img
               src={araujoLogo}
               alt="Araujo"
-              className="h-16 sm:h-20 w-auto"
+              className="h-10 sm:h-16 lg:h-20 w-auto"
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1.8, duration: 0.6 }}
             />
             <motion.div
-              className="text-6xl text-white/80"
+              className="text-4xl sm:text-5xl lg:text-6xl text-white/80"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 2.1, type: "spring", stiffness: 200 }}
@@ -101,7 +101,7 @@ const Hero = () => {
             <motion.img
               src={listraLogo}
               alt="Listra"
-              className="h-12 sm:h-16 w-auto"
+              className="h-8 sm:h-12 lg:h-16 w-auto"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 1.8, duration: 0.6 }}

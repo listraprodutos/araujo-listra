@@ -56,7 +56,8 @@ const WhoWeAre = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -88,6 +89,44 @@ const WhoWeAre = () => {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Mobile Horizontal Scroll */}
+        <div className="md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+          <div className="flex gap-4 pb-4">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={index}
+                  className="snap-start flex-shrink-0 w-[85vw]"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                >
+                  <Card className="h-full bg-white border-2 border-border rounded-3xl shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                        <Icon className="w-7 h-7 text-primary" strokeWidth={2} />
+                      </div>
+                      
+                      <h3 className="text-lg font-bold mb-2 text-foreground leading-tight">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-sm text-primary font-semibold mb-3">
+                        {service.subtitle}
+                      </p>
+                      
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

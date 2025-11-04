@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Store, Users, TrendingUp, Sparkles, Smartphone } from "lucide-react";
 import araujoTemImage from "@/assets/araujo-tem-transparent.png";
 import araujoALogo from "@/assets/araujo-a-logo.png";
@@ -19,7 +20,7 @@ const AraujoTimeline = () => {
   ];
 
   return (
-    <section ref={ref} className="py-32 bg-gradient-to-b from-background to-araujo-blue-soft">
+    <section ref={ref} className="py-16 md:py-32 bg-gradient-to-b from-background to-araujo-blue-soft">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="mb-20" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
           <div className="flex items-center justify-center gap-8 mb-6 flex-wrap">
@@ -31,13 +32,13 @@ const AraujoTimeline = () => {
           </div>
         </motion.div>
 
-        {/* Horizontal Timeline */}
-        <div className="max-w-6xl mx-auto mb-20">
+        {/* Horizontal Timeline - Desktop */}
+        <div className="max-w-6xl mx-auto mb-20 hidden lg:block">
           <div className="relative">
-            <div className="absolute top-[50px] left-0 right-0 h-1 bg-border hidden lg:block z-0" />
-            <motion.div className="absolute top-[50px] left-0 h-1 bg-araujo-blue hidden lg:block z-0" initial={{ width: 0 }} animate={isInView ? { width: `${(activeYear / (timeline.length - 1)) * 100}%` } : {}} transition={{ duration: 1.5, delay: 0.5 }} />
+            <div className="absolute top-[50px] left-0 right-0 h-1 bg-border z-0" />
+            <motion.div className="absolute top-[50px] left-0 h-1 bg-araujo-blue z-0" initial={{ width: 0 }} animate={isInView ? { width: `${(activeYear / (timeline.length - 1)) * 100}%` } : {}} transition={{ duration: 1.5, delay: 0.5 }} />
 
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
+            <div className="grid grid-cols-5 gap-4">
               {timeline.map((item, index) => {
                 const Icon = item.icon;
                 const isActive = activeYear === index;
@@ -56,6 +57,34 @@ const AraujoTimeline = () => {
                 );
               })}
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Horizontal Scroll Timeline */}
+        <div className="lg:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-4 px-4 mb-20">
+          <div className="flex gap-4 pb-4">
+            {timeline.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div 
+                  key={index} 
+                  className="snap-start flex-shrink-0 w-[70vw]"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <Card className="h-full bg-white border-2 border-araujo-blue/30 rounded-2xl shadow-lg">
+                    <CardContent className="p-6 text-center">
+                      <div className="w-16 h-16 mx-auto rounded-full bg-araujo-blue text-white flex items-center justify-center mb-4">
+                        <Icon className="w-8 h-8" strokeWidth={2} />
+                      </div>
+                      <div className="text-3xl font-bold text-araujo-blue mb-2">{item.year}</div>
+                      <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
