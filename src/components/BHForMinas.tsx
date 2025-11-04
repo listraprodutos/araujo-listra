@@ -27,9 +27,9 @@ const BHForMinas = () => {
           duration: 0.6
         }}>
             <div className="flex items-center justify-center gap-4 mb-6">
-              <Heart className="w-12 h-12 text-primary" strokeWidth={2} fill="currentColor" />
+              <Heart className="w-12 h-12 text-listra-footer" strokeWidth={2} fill="currentColor" />
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
-                <span className="text-primary">DE BH PARA MINAS</span>
+                <span className="text-listra-footer">DE BH PARA MINAS</span>
               </h2>
             </div>
           </motion.div>
@@ -45,7 +45,7 @@ const BHForMinas = () => {
           delay: 0.3
         }}>
             <div className="text-center bg-white/50 backdrop-blur-sm rounded-3xl p-10 border-2 border-border">
-              <MapPin className="w-10 h-10 text-primary mx-auto mb-4" strokeWidth={2} />
+              <MapPin className="w-10 h-10 text-listra-footer mx-auto mb-4" strokeWidth={2} />
               <p className="text-2xl">
                 <span className="font-bold">Desde 2011 em Belo Horizonte.</span>
                 <br />
@@ -61,7 +61,7 @@ const BHForMinas = () => {
               nós crescemos junto com a transformação digital de Minas.
             </p>
 
-            <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-16 max-w-xs mx-auto" />
+            <div className="h-1 bg-gradient-to-r from-transparent via-listra-footer to-transparent my-16 max-w-xs mx-auto" />
 
             <div className="space-y-8 text-center">
               
@@ -84,7 +84,7 @@ const BHForMinas = () => {
               </div>
             </div>
 
-            <div className="h-1 bg-gradient-to-r from-transparent via-primary to-transparent my-16 max-w-xs mx-auto" />
+            <div className="h-1 bg-gradient-to-r from-transparent via-listra-footer to-transparent my-16 max-w-xs mx-auto" />
 
             <div className="text-center space-y-8">
               <p className="text-2xl font-medium">
