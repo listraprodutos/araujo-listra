@@ -47,7 +47,6 @@ COMPOSITION:
 - Centered transparent plastic shopping bag on clean beige/cream background
 - Inside the bag: ${medicines.length} colorful medicine boxes stacked naturally
 - Soft studio lighting from top-left creating gentle shadows
-- IMPORTANT: Add "Listra" logo (purple and green colors) in the top-right corner of the image, small size, subtle and professional
 
 MEDICINE BOXES (label each with): ${medicineNames}
 - Each box is a different vibrant color: purple, blue, green, yellow, pink, orange

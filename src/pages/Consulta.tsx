@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import listraLogo from "@/assets/listra-logo-header.png";
 import listraLogo2 from "@/assets/listra-logo-2.png";
 import listraLogoColor from "@/assets/listra-logo-color.png";
+import listraLogoOverlay from "@/assets/listra-logo-overlay.png";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -464,11 +465,18 @@ const Consulta = () => {
             {/* Right side - Image */}
             <div className="flex items-center justify-center">
               {generatedImage && (
-                <img
-                  src={generatedImage}
-                  alt="Sacola de remédios gerada"
-                  className="w-full h-auto rounded-lg max-w-md"
-                />
+                <div className="relative w-full max-w-md">
+                  <img
+                    src={generatedImage}
+                    alt="Sacola de remédios gerada"
+                    className="w-full h-auto rounded-lg"
+                  />
+                  <img
+                    src={listraLogoOverlay}
+                    alt="Listra"
+                    className="absolute top-3 right-3 h-8 w-auto"
+                  />
+                </div>
               )}
             </div>
           </div>
