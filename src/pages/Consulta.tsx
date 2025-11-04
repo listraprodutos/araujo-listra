@@ -205,7 +205,7 @@ const Consulta = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/30">
-      <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
       
       {/* Header Menu */}
       <header className="bg-listra-footer py-4 px-6 shadow-md">
@@ -283,7 +283,7 @@ const Consulta = () => {
                         style={{
                           borderRadius: '4px',
                           clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
-                          fontFamily: "'Caveat', cursive",
+                          fontFamily: "'Patrick Hand', cursive",
                         }}
                       >
                         <p className="font-bold text-center text-2xl">{symptom.label}</p>
@@ -298,7 +298,7 @@ const Consulta = () => {
                         style={{
                           borderRadius: '4px',
                           clipPath: 'polygon(0% 2%, 98% 0%, 100% 98%, 2% 100%)',
-                          fontFamily: "'Caveat', cursive",
+                          fontFamily: "'Patrick Hand', cursive",
                           transform: `rotate(${index % 2 === 0 ? -2 : 2}deg)`,
                         }}
                       >
@@ -399,7 +399,7 @@ const Consulta = () => {
                     {bag.length === 0 ? (
                       <div className="h-full flex items-center justify-center text-center" style={{ color: '#999' }}>
                         <div>
-                          <p style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2rem' }}>Arraste as necessidades aqui</p>
+                          <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: '1.2rem' }}>Arraste as necessidades aqui</p>
                         </div>
                       </div>
                     ) : (
@@ -414,7 +414,7 @@ const Consulta = () => {
                                 onClick={() => removeFromBag(medicine.id)}
                                 className="bg-transparent p-2 cursor-pointer hover:opacity-70 transition-opacity"
                                 style={{
-                                  fontFamily: "'Caveat', cursive",
+                                  fontFamily: "'Patrick Hand', cursive",
                                   fontSize: '1.5rem',
                                   color: '#2c3e50',
                                   paddingLeft: '8px',
